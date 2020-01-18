@@ -12,6 +12,7 @@ import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
 import ProSup from './views/Production/ProSup.vue'
+import TesterFeedback from './views/Production/TesterFeedback.vue'
 
 
 import workerProfile from './views/Worker/workerProfile.vue'
@@ -105,6 +106,11 @@ export default new Router({
            name:'ProSup',
            component: ProSup
        },
+       {
+        path:'/TesterFeedback',
+        name:'TesterFeedback',
+        component: TesterFeedback
+    },
 
        
 

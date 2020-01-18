@@ -13,6 +13,7 @@
             >
                 <v-container>
                     <h4>upload and send design</h4>
+                     <v-file-input multiple label="File input"></v-file-input>
                     
                 </v-container>
             </v-sheet>

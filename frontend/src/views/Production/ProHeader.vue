@@ -64,7 +64,7 @@ export default {
                 { icon: 'dashboard', text:'Dashboard', route:'/'},
                 { icon: 'home', text:'Home', route:'./Hm'},
                 { icon: 'folder', text: 'Report', route:'./DesignCurPro'},
-                { icon: 'folder', text: 'Profile', route:'./Tester'}, 
+                { icon: 'folder', text: 'Feedbacks', route:'./TesterFeedback'}, 
             ]
         }
     }
