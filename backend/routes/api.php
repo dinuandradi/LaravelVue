@@ -70,3 +70,15 @@ Route::middleware('auth:api')->group(function () {
 Route::post('/Logintestplease',[
     'uses'=>'PeopleController@addusertest'
 ]);
+Route::post('/Tester',[
+    'uses'=>'Tester1Controller@submitfeedback'
+]);
+Route::get('/feedbacks',[
+    'uses'=>'Tester1Controller@getfeedback'
+]);
+Route::delete('/deletefeedbacks/{id}',[
+    'uses'=>'Tester1Controller@deletefeedback'
+]);
+Route::put('/editfeedbacks/{id}',[
+    'uses'=>'Tester1Controller@editfeedback'
+]);

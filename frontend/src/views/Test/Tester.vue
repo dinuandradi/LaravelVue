@@ -16,37 +16,59 @@
             >
                 <v-container>
                      
-                      <v-form  class="my-2 mx-5" ref="form">
-                          <v-text-field label="Project No." shaped clearable></v-text-field>
+                      <v-form  class="my-2 mx-5" ref="form" @submit.prevent="submitForm">
+                          <v-text-field 
+                          
+                          label="Project No." 
+                          shaped clearable 
+                          name="PNum" 
+                         
+                         
+                          v-model="item.PNum"
+                          > 
+                          </v-text-field>
+                         
+                         
                           
                           <v-menu class="mx-5">
-                              <v-text-field :value="receive" slot="activator" label="Received date" prepend-icon="place"></v-text-field>
-                              <v-date-picker v-model="receive"> </v-date-picker>
+                              
+                              <v-text-field  
+                              :value="item.RDate" 
+                              slot="activator" 
+                              label="Received date" 
+                              prepend-icon="place">
+                              </v-text-field>
+                              <v-date-picker v-model="item.RDate"> </v-date-picker>
                           </v-menu>
                            <v-menu class="mx-5">
-                              <v-text-field :value="send" slot="activator" label="send date" prepend-icon="data_range"></v-text-field>
-                              <v-date-picker v-model="send"> </v-date-picker>
+                              <v-text-field 
+                              :value="item.SDate" 
+                              slot="activator" label="send date"
+                              prepend-icon="data_range">
+                              </v-text-field>
+                              <v-date-picker v-model="item.SDate"> </v-date-picker>
                           </v-menu>
-    
-                      </v-form>
-
-                    <template>
-                        <v-container fluid>
-                            <v-textarea
-                                name="input-7-1"
+                          <v-textarea
+                               
+                                name="Feedback"
                                 filled
                                 background-color="light green"
                                 color="blue"
                                 label="feedback"
                                 auto-grow
                                 value="Text here....."
+                                v-model="item.Feedback"
                             ></v-textarea>
+                          <v-container>
+                        <v-btn class="success mx-0 mt-3" type="submit">Send</v-btn>
+                        <v-btn class="success mx-0 mt-3" @click="reset">Reset</v-btn> 
                         </v-container>
-                    </template>  
+    
+                      </v-form>
 
-                    <div class="text-center">
-                        <v-btn rounded color="primary" dark>send</v-btn>
-                    </div> 
+                   
+
+                    
                     
                 </v-container>
             </v-sheet>
@@ -80,17 +102,34 @@
 
         data(){
             return{
-                due: null,
-                order: null
-            }
+               item:{
+                    
+                    PNum:'',
+                    SDate:'',
+                    RDate:'',
+                    Feedback:'',
+            
+               },
+                
 
-        },
-
-        methods:{
-            reset(){
-                this.$refs.form.raddeset()
-            }
         }
+        },
+         methods:{
+                
+
+                submitForm()
+                {
+
+                this.$http.post("http://localhost:8000/api/Tester",this.item)
+                    .then(function(response){
+                        
+                        this.$router.push('/TesterFeedback')
+                })
+
+                }
+        }
+
+        
 
     }
 
