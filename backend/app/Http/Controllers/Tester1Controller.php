@@ -4,11 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\tester1;
+use App\SendImage;
 
 class Tester1Controller extends Controller
 {
-    //
+    public function index (Request $request){
+        $tester = tester1::get();
+        return response()->json(['message'=>$tester],201);
+    }
+    
+    public function getListOfDesigner (Request $request){
+        $data = SendImage::get();
+        return response()->json(['message'=>$data],201);
+    }
+
     public function submitfeedback (Request $request){
+        $imageName = time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('images'), $imageName);
 
         $tester = new tester1();
 
@@ -16,6 +28,7 @@ class Tester1Controller extends Controller
         $tester->RDate = $request->input('RDate');
         $tester->SDate = $request->input('SDate');
         $tester->Feedback = $request->input('Feedback');
+        $tester->image = $imageName;
 
         $tester->save();
         

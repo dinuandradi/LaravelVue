@@ -11,9 +11,11 @@ import register from './views/Admin/register.vue'
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
-import ProSup from './views/Production/ProSup.vue'
-import TesterFeedback from './views/Production/TesterFeedback.vue'
-
+import ProSup from './views/Production/ProSuperv.vue'
+import ProSupDesigner from './views/Production/ProSupervForDesigner.vue'
+import TesterFeedback from './views/Test/TesterFeedback.vue'
+import test from './views/Production/test.vue'
+import edit from './views/Test/edit.vue'
 
 import workerProfile from './views/Worker/workerProfile.vue'
 import workerpanel from './views/Worker/workerpanel.vue'
@@ -64,7 +66,7 @@ export default new Router({
          },
 
          {
-             path:'/SendDesign',
+             path:'/',
              name:'SendDesign',
              component: SendDesign
 
@@ -96,7 +98,7 @@ export default new Router({
         },
 
         {
-           path:'/',
+           path:'/Hm',
            name:'Hm',
            component: Hm
        },
@@ -105,6 +107,11 @@ export default new Router({
            path:'/ProSup',
            name:'ProSup',
            component: ProSup
+       },
+       {
+           path:'/ProSupDesigner',
+           name:'ProSupDesigner',
+           component: ProSupDesigner
        },
        {
         path:'/TesterFeedback',
@@ -166,7 +173,20 @@ export default new Router({
         name:'publish',
         component: publish
 
+     },
+     {
+        path:'/test',
+        name:'test',
+        component: test
+
+     },
+     {
+        path:'/edit/:id',
+        name:'edit',
+        component: edit
+
      }
+
 
 
     

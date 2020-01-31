@@ -64,6 +64,7 @@ export default {
                 { icon: 'dashboard', text:'Dashboard', route:'/'},
                 { icon: 'folder', text:'Designer', route:'/AddnewProject'},
                 { icon: 'folder', text: 'Production Supervisor', route:'./ProSup'},
+                { icon: 'folder', text: 'Prod Super by Designer', route:'./ProSupDesigner'},
                 { icon: 'folder', text: 'Production Test Person', route:'./Tester'},
                 { icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'},
                 { icon: 'folder', text: 'Worker', route:'/workerpanel'},

@@ -72,7 +72,7 @@
                     </v-flex>
                     <v-flex>
                         <v-card color="deep-purple accent-1">
-                            <v-btn><router-link to = "./Test/edit.vue"><v-icon small @click="editRecord($event)" v-bind:id="Feedbacks.id">edit</v-icon></router-link></v-btn>
+                            <v-btn><router-link to ="/edit/"><v-icon >edit</v-icon></router-link></v-btn>
                        
                         
                             
@@ -106,8 +106,8 @@
 <script>
 
     
-    import Dheader from './ProHeader.vue'
-    import cfooter from './ProFooter.vue'
+    import Dheader from './Header.vue'
+    import cfooter from './Footer.vue'
     
 
     export default {

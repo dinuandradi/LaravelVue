@@ -5,26 +5,33 @@
         <Dheader/>
         
         <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
-        <h4><font size="6" face="Comic Sans MS">Test Results</font></h4>
+        <h4><font size="6" face="Comic Sans MS">Edit Feedback</font></h4>
         <v-container class="my-2">
             <v-sheet
             class="py-3 px-5"
             :elevation="10"
             color="white-1"
             height="824"
-            max-width="1200"
+             max-width="1200"
             >
                 <v-container>
-
-                    <form @submit="formSubmit" enctype="multipart/form-data">
-                         <v-text-field
+                     
+                      <v-form  class="my-2 mx-5" ref="form" @submit.prevent="submitForm">
+                          <v-text-field 
+                          
                           label="Project No." 
                           shaped clearable 
                           name="PNum" 
+                         
+                         
                           v-model="item.PNum"
-                          >
+                          > 
                           </v-text-field>
+                         
+                         
+                          
                           <v-menu class="mx-5">
+                              
                               <v-text-field  
                               :value="item.RDate" 
                               slot="activator" 
@@ -42,6 +49,7 @@
                               <v-date-picker v-model="item.SDate"> </v-date-picker>
                           </v-menu>
                           <v-textarea
+                               
                                 name="Feedback"
                                 filled
                                 background-color="light green"
@@ -51,21 +59,17 @@
                                 value="Text here....."
                                 v-model="item.Feedback"
                             ></v-textarea>
-                      
-                        <div class="v-input v-text-field theme--light">
-                            <div class="v-input__control">
-                                <div class="v-input__slot">
-                                    <div class="v-text-field__slot">
-                                        <input  v-on:change="onImageChange"  type="file">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                          <v-container>
+                        <v-btn class="success mx-0 mt-3" type="submit">Update</v-btn>
                         <v-btn class="success mx-0 mt-3" @click="reset">Reset</v-btn> 
-                        <button class="success mx-0 mt-3 v-btn theme--light" >Send</button>
+                        </v-container>
+    
+                      </v-form>
 
-                    </form>
+                   
+
+                    
+                    
                 </v-container>
             </v-sheet>
         </v-container> 
@@ -83,7 +87,9 @@
     //import Designheader from './Designheader.vue'
     import cfooter from './Footer.vue'
     import Dheader from './Header.vue'
-    import axios from 'axios';
+    //import testheader from './testheader.vue'
+    
+    
 
     export default {
        components: {
@@ -91,59 +97,42 @@
             cfooter,
             Dheader,
             //testheader,
-        },
+            
+            },
 
         data(){
             return{
-                image: '',
                item:{
+                    
                     PNum:'',
                     SDate:'',
                     RDate:'',
                     Feedback:'',
-                },
-            }
-        },
-        methods:{
-                onImageChange(e){
-                    this.image = e.target.files[0];
-                },
-                formSubmit(e) {
-                    e.preventDefault();
-                    let currentObj = this;
-    
-                    const config = {
-                        headers: { 'content-type': 'multipart/form-data' }
-                    }
-        
-                    let formData = new FormData();
-                    formData.append('image', this.image);
-                    formData.append('PNum', this.item.PNum);
-                    formData.append('SDate', this.item.SDate);
-                    formData.append('RDate', this.item.RDate);
-                    formData.append('Feedback', this.item.Feedback);
+            
+               },
+                
 
-                    axios.post('http://localhost:8000/api/Tester', formData, config)
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                },
-                reset(){
-                    this.$refs.form.reset()
-                },
-
-                submitForm()
-                {
-                    this.$http.post("http://localhost:8000/api/Tester",this.item)
-                        .then(function(response){
-                            
-                            this.$router.push('/TesterFeedback')
-                    })
-                }
         }
+        },
+        // methods:{
+                
+
+               /* submitForm()
+                {
+
+                this.$http.post("http://localhost:8000/api/Tester",this.item)
+                    .then(function(response){
+                        
+                        this.$router.push('/TesterFeedback')
+                })
+
+                }
+        }*/
+        created(){
+           // console.log(this.$router.params.id )
+        }
+        
+
     }
 
 </script>

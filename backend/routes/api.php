@@ -73,6 +73,12 @@ Route::post('/Logintestplease',[
 Route::post('/Tester',[
     'uses'=>'Tester1Controller@submitfeedback'
 ]);
+Route::get('/getListOfTester',[
+    'uses'=>'Tester1Controller@index'
+]);
+Route::get('/getListOfDesigner',[
+    'uses'=>'Tester1Controller@getListOfDesigner'
+]);
 Route::get('/feedbacks',[
     'uses'=>'Tester1Controller@getfeedback'
 ]);
@@ -81,4 +87,21 @@ Route::delete('/deletefeedbacks/{id}',[
 ]);
 Route::put('/editfeedbacks/{id}',[
     'uses'=>'Tester1Controller@editfeedback'
+]);
+
+
+Route::post('/sendimage',[
+    'uses'=>'SendImageController@submitimage'
+]);
+Route::get('/chooseimage',[
+    'uses'=>'SendImageController@getimage'
+]);
+
+Route::get('/getTheImage/{name}', array('middleware' => 'cors', 'uses' => 'SendImageController@getTheImage'));
+
+Route::delete('/deleteimage/{id}',[
+    'uses'=>'SendImageController@deleteimage'
+]);
+Route::put('/editimage/{id}',[
+    'uses'=>'SendImageController@editimage'
 ]);
