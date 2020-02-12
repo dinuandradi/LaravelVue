@@ -11,8 +11,10 @@ import register from './views/Admin/register.vue'
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
-import ProSup from './views/Production/ProSuperv.vue'
+import ProSuper from './views/Design/ProSuperv.vue'
+import Propanel from './views/Production/Propanel.vue'
 import ProSupDesigner from './views/Production/ProSupervForDesigner.vue'
+import ProSup from './views/Production/ProSup.vue'
 import TesterFeedback from './views/Test/TesterFeedback.vue'
 import test from './views/Production/test.vue'
 import edit from './views/Test/edit.vue'
@@ -66,7 +68,7 @@ export default new Router({
          },
 
          {
-             path:'/',
+             path:'/SendDesign',
              name:'SendDesign',
              component: SendDesign
 
@@ -98,21 +100,31 @@ export default new Router({
         },
 
         {
-           path:'/Hm',
+           path:'/',
            name:'Hm',
            component: Hm
        },
 
        {
-           path:'/ProSup',
-           name:'ProSup',
-           component: ProSup
+           path:'/ProSuperv',
+           name:'ProSuper',
+           component: ProSuper
        },
+       {
+        path:'/Propanel',
+        name:'Propanel',
+        component: Propanel
+         },
        {
            path:'/ProSupDesigner',
            name:'ProSupDesigner',
            component: ProSupDesigner
        },
+       {
+        path:'/ProSup',
+        name:'ProSup',
+        component: ProSup
+    },
        {
         path:'/TesterFeedback',
         name:'TesterFeedback',

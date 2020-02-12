@@ -63,7 +63,9 @@ export default {
                 { icon: 'person', text:'reports', route:'/DesignCurPro'},
                 { icon: 'folder', text:'Add new project', route:'/AddnewProject'},
                 { icon: 'folder', text:'send designs', route:'/SendDesign'},
-                { icon: 'person', text:'Register Users', route:'/register'},
+                { icon: 'folder', text:'Feedbacks', route:'/ProSuperv'},
+                
+
             ]
         }
     }

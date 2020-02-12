@@ -20,6 +20,7 @@ class CreateTester1sTable extends Migration
             $table->String('RDate');
             $table->String('SDate');
             $table->String('Feedback');
+            $table->String('image');
 
         });
     }
