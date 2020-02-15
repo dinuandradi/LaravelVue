@@ -9,7 +9,7 @@
             class="py-3 px-5"
             :elevation="10"
             color="brown lighten-5"
-            height="550"
+            height="800"
             width="800"
             align="center"
             >
@@ -17,13 +17,21 @@
                      
                     <h4>Register New user</h4>
                       <v-form  class="my-2 mx-5" ref="form" @submit.prevent="submitForm">
-                          <v-text-field
-                            label="user name" 
-                            :rules="[inputRules.min2]" 
-                            name="uname" 
-                            v-model="user.uname"
-                            shaped clearable>
-                           </v-text-field>
+                           <v-text-field 
+                            label="First Name" 
+                            name="ufname"
+                            v-model="user.ufname">
+                          </v-text-field>
+                           <v-text-field 
+                            label="Last Name" 
+                            name="ulname"
+                             v-model="user.ulname">
+                          </v-text-field>
+                           <v-text-field 
+                            label="user email" 
+                            name="uemail"
+                             v-model="user.uemail">
+                          </v-text-field>
                           <v-text-field 
                             label="user ID" 
                             name="uid"
@@ -118,8 +126,10 @@
                 
                  
                 user:{
-                    uname:'',
+                    ufname:'',
+                    ulname:'',
                     uid:'',
+                    uemail:'',
                     udep:'',
                     ulevel:'',
                     upassword:'',
@@ -160,10 +170,10 @@
 
             submitForm(){
 
-                 this.$http.post("http://localhost:8000/api/RegisterUser",this.user)
+                 this.$http.post("http://localhost:8000/api/register",this.user)
                      .then(function(response){
                         
-                         this.$router.push('/DesignCurPro')
+                         //this.$router.push('/DesignCurPro')
                    })
 
             }

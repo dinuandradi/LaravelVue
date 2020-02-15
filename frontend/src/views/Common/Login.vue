@@ -14,13 +14,13 @@
             >
                 <v-container >
                     <h4>Login</h4>
-                    <v-form  ref="form">
+                    <v-form  ref="form"  @submit.prevent="submitForm">
 
                         <v-text-field
                         :rules="[inputRules.required]" 
-                        name="uname" 
-                        label="user name"
-                        v-model="user.uname"
+                        name="uemail" 
+                        label="emai"
+                        v-model="user.uemail"
                         shaped clearable></v-text-field>
 
 
@@ -35,7 +35,7 @@
 
 
                     </v-form>
-                    <v-btn class="success mx-5 mt-3">login</v-btn>
+                    <v-btn class="success mx-5 mt-3" @click="submitForm">login</v-btn>
                     
                     <v-btn class="error mx-5 mt-3" @click="reset">clear</v-btn>
 
@@ -58,6 +58,9 @@
 </template>
 
 <script>
+//import VueSession from 'vue-session'
+//Vue.use(VueSession)
+
 export default {
 
     
@@ -67,7 +70,7 @@ export default {
             return{
 
             user:{
-                    uname:'',
+                    uemail:'',
                     upassword:'',
                     },
 
@@ -88,17 +91,34 @@ export default {
 
         methods:{
             reset(){
-                this.$refs.form.reset()
+                this.$refs.form.reset();
+            },
+
+            submitForm(){
+                this.$http.post("http://localhost:8000/api/login",this.user)
+                     .then(function(response){
+                        if(response.status === 200){
+                            //this.$session.start
+                            //this.$session.start();
+                            //this.$session.set("loggedInUser",response.login);
+                            //alert('valid user id or password!');
+                            this.$router.push('/');
+                            
+                        }
+                }).catch(e => {
+                    console.log(e);
+                    alert('Invalid user id or password!');
+                });
             },
 
             Login(event){
                 
 
             if(this.user.type === 'Designer'){
-            this.$http.post("http://localhost:8000/api/Logint",this.user)
+            this.$http.post("http://localhost:8000/api/login",this.user)
             .then(function(response) {   
             if(response.status === 200){
-                this.$session.start()
+                
                 //this.$session.set(key,value)
                 this.$router.push('/Hm')
                     }  

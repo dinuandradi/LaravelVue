@@ -20,6 +20,7 @@ class CreateSendImagesTable extends Migration
             $table->String('pcode');
             $table->String('sendate');
             $table->String('image');
+           
         });
     }
 

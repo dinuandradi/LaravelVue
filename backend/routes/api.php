@@ -105,3 +105,12 @@ Route::delete('/deleteimage/{id}',[
 Route::put('/editimage/{id}',[
     'uses'=>'SendImageController@editimage'
 ]);
+Route::post('/login',[
+    'uses'=>'LoginController@login'
+]);
+Route::get('/logout',[
+    'uses'=>'LoginController@logout'
+]);
+Route::post('/register',[
+    'uses'=>'LoginController@register'
+]);

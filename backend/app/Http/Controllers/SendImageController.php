@@ -62,6 +62,7 @@ public function editimage(Request $request,$id){
         $image->pname = $request->input('pname');
         $image->pnum = $request->input('pnum');
         $feedback->sendate = $request->input('sendate');
+        
       
 
         $image->save();

@@ -7,6 +7,7 @@ import DesignCompletedProjects from './views/Design/DesignCompletedProjects.vue'
 import AddnewProject from './views/Design/AddnewProject.vue'
 import SendDesign from './views/Design/SendDesign.vue'
 import Login from './views/Common/Login.vue'
+
 import register from './views/Admin/register.vue'
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
@@ -28,6 +29,8 @@ import IRecentReports from './views/Incentives/IRecentReports.vue'
 import Download from './views/Incentives/Download.vue'
 import Calculate from './views/Incentives/Calculate.vue'
 import publish from './views/Incentives/publish.vue'
+
+
 
 
 Vue.use(Router);
@@ -79,6 +82,7 @@ export default new Router({
             component: Login
 
          },
+         
 
          {
             path:'/register',
@@ -199,6 +203,9 @@ export default new Router({
 
      }
 
+     //Home
+
+     
 
 
     

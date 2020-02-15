@@ -58,18 +58,18 @@
 
 export default {
     data(){
+        var ldinks = [];
+        ldinks.push({ icon: 'dashboard', text:'Dashboard', route:'/'});
+        ldinks.push({ icon: 'folder', text:'Designer', route:'/AddnewProject'});
+        ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
+        ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
+        ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
+        ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
+
+
         return{
             drawer:false,
-            links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'folder', text:'Designer', route:'/AddnewProject'},
-                { icon: 'folder', text: 'Production Supervisor', route:'./Propanel'},
-                
-                { icon: 'folder', text: 'Production Test Person', route:'./Tester'},
-                { icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'},
-                { icon: 'folder', text: 'Worker', route:'/workerpanel'},
-                
-            ]
+            links:ldinks
         }
     }
     

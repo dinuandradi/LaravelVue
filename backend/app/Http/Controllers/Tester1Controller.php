@@ -69,7 +69,7 @@ public function editfeedback(Request $request,$id){
         $feedback->RDate = $request->input('RDate');
         $feedback->SDate = $request->input('SDate');
         $feedback->Feedback = $request->input('Feedback');
-
+        
         $feedback->save();
     return response()->json(['msg'=>$feedback],200);
 
