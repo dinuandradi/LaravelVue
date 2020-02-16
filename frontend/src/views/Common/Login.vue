@@ -1,6 +1,8 @@
 <template>
     <v-app class="grey lighten-2">
         <div class="back" align="center">
+            <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+        
             <v-container
             class="mx-5 my-5">
             
@@ -8,7 +10,7 @@
             class="px-5"
             :elevation="10"
             color="blue-grey lighten-3"
-            height="500"
+            height="600"
             width="500"
             
             >
@@ -19,7 +21,7 @@
                         <v-text-field
                         :rules="[inputRules.required]" 
                         name="uemail" 
-                        label="emai"
+                        label="email"
                         v-model="user.uemail"
                         shaped clearable></v-text-field>
 
@@ -44,6 +46,8 @@
             </v-sheet>
            
             </v-container>
+            </v-parallax>
+        
         </div>
     </v-app>
     

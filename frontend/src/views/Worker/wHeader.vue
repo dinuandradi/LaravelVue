@@ -14,12 +14,12 @@
             <v-spacer></v-spacer>
 
             <v-toolbar-title>
-                <!--<span class="font-weight-light"><v-icon>person</v-icon></span>-->
+                <span class="font-weight-light"><font face="Arial" size= "2">Worker Panel</font></span>
 
             </v-toolbar-title> 
             <!--<v-btn color="grey">-->
                 <v-icon large right>person</v-icon>
-                <span><router-link to="./Login">Sign out</router-link></span>
+                <span><router-link to="./">Sign out</router-link></span>
                  
                
                

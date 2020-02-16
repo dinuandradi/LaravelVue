@@ -1,15 +1,14 @@
 <template>
     <div class="back" id="customers" >
         <Dheader />
-
-        <v-parallax src="https://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_blue_1920x1234.jpg" max-height="1000" height='100%'>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         <h4><font size="6" face="Comic Sans MS">Feedback</font></h4>
             <v-container class="my-2">
                 
                 <v-sheet
                     class="py-3 px-5"
                     :elevation="10"
-                    color="wight-1"
+                    color="blue-grey darken-1"
                     height="824"
                     max-width="1300"
                 >
@@ -17,7 +16,7 @@
                 <v-data-table
                     :headers="headers"
                     :items="list"
-                    light
+                    dark
                     >
                     <template slot="items" slot-scope="props">
                         <td class="text-xs-right">{{ props.item.PNum }}</td>
@@ -32,10 +31,11 @@
                         </td>
                     </template>
                 </v-data-table>
-                </v-sheet>
-                <div class ="pdf">
-                    <button class="btn" @click="downloadPDF"> Download PDF </button>
+                <div class="pdf" center>
+                     <v-btn rounded color="blue-grey darken-4" dark @click="downloadPDF" >Download PDF</v-btn>
                 </div>
+                </v-sheet>
+                
             </v-container>
         </v-parallax>
     </div>

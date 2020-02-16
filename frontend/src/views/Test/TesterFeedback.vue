@@ -1,161 +1,140 @@
 <template>
+    <div class="back" id="customers" >
+        <Dheader />
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+        <h4><font size="6" face="Arial">Feedback</font></h4>
+            <v-container class="my-2">
+                
+                <v-sheet
+                    class="py-3 px-5"
+                    :elevation="10"
+                    color="blue-grey darken-1"
+                    height="824"
+                    max-width="1300"
+                >
 
-<v-app class="grey lighten-2">
-    <div class="back" align="center">
-        <Dheader/>
-        <v-container>
-
-            <v-sheet
-            class="py-3 px-5"
-            :elevation="10"
-            color="blue-grey lighten-3"
-            height="550"
-            width="800"
-            align="center"
-            >
-            <v-container>
-                <v-layout row class="my-5" >
-                    <v-flex>
-                        <v-card color="blue darken-1">
-                        Project Number
-                        </v-card>
-                    </v-flex>
-                    <v-flex>
-                        <v-card color="light-blue darken-2">
-                        Received Date
-                        </v-card>
-                    </v-flex>
-                     <v-flex>
-                         <v-card color="green lighten-1">
-                        Send Date
-                        </v-card>
-                    </v-flex>
-                     <v-flex>
-                         <v-card color="orange accent-2">
-                        Feedback
-                        </v-card>
-                    </v-flex>
-                    <v-flex>
-                         <v-card color="orange accent-2">
-                        Edit
-                        </v-card>
-                    </v-flex>
-                    <v-flex>
-                         <v-card color="orange accent-2">
-                        Delete
-                        </v-card>
-                    </v-flex>
-                </v-layout>
-
-/*
-                <div >
-                 <v-layout row  :key="Feedbacks" v-for="Feedbacks in Feedbacks" >
-                    <v-flex>
-                        <v-card color="deep-purple accent-1">
-                        {{Feedbacks.PNum}}
-                        </v-card>
-                    </v-flex>
-                    <v-flex>
-                        <v-card color="deep-purple accent-1">
-                        {{Feedbacks.RDate}}
-                        </v-card>
-                    </v-flex>
-                     <v-flex>
-                         <v-card color="deep-purple accent-1">
-                        {{Feedbacks.SDate}}
-                        </v-card>
-                    </v-flex>
-                     <v-flex>
-                         <v-card color="deep-purple accent-1">
-                        {{Feedbacks.Feedback}}
-                        </v-card>
-                    </v-flex>
-                    <v-flex>
-                        <v-card color="deep-purple accent-1">
-                            <v-btn><router-link to ="/edit/"><v-icon >edit</v-icon></router-link></v-btn>
-                       
+                <v-data-table
+                    :headers="headers"
+                    :items="list"
+                    dark
+                    >
+                    <template slot="items" slot-scope="props">
+                        <td class="text-xs-right">{{ props.item.PNum }}</td>
+                        <td class="text-xs-right">{{ props.item.RDate }}</td>
+                        <td class="text-xs-right">{{ props.item.SDate }}</td>
+                        <td class="text-xs-right">{{ props.item.Feedback }}</td>
+                        <td>
+                            <img :src="'http://127.0.0.1:8000/images/' +props.item.image" style="width: 50px; height: 50px">
+                        </td>
                         
-                            
-                       
-                        </v-card>
-                    </v-flex>
-                   
-                    
-                    <v-flex>
-                        <v-card color="deep-purple accent-1">
-                        <v-icon small @click="deleteRecord($event)" v-bind:id="Feedbacks.id">delete</v-icon>
-                        </v-card>
-                    </v-flex>
-                    
-                </v-layout>
+                        <td><v-icon small @click="deleteRecord($event)" v-bind:id="props.item.id">delete</v-icon></td>
+                        <td><v-icon small @click="editItem(item)" v-bind:id="props.item.id">edit</v-icon></td>
+                    </template>
+                </v-data-table>
+                <div class="pdf" center>
+                     <v-btn rounded color="blue-grey darken-4" dark @click="downloadPDF" >Download PDF</v-btn>
                 </div>
-
-
+                </v-sheet>
+                
             </v-container>
-        
-            </v-sheet>     
-        </v-container>           
-        
-          <cfooter/>
+        </v-parallax>
     </div>
-</v-app>        
-        
 </template>
+
 
 
 <script>
 
+
+import Dheader from './Header.vue'
+import cfooter from './Footer.vue'
+import axios from 'axios'
+import jsPDF from 'jspdf';
+
+export default {
     
-    import Dheader from './Header.vue'
-    import cfooter from './Footer.vue'
-    
+    name: "app",
+    components: {
+        cfooter,
+        Dheader,
+    },
+    data() {
+        return {
+            list:[],
+            headers:[
+                {
+                    text: "Project_No",
+                    align: "left",
+                    sortable: false,
+                    value: "PNum"
+                },
+                { text: "RDate", value: "RDate" },
+                { text: "SDate", value: "SDate" },
+                { text: "Feedback", value: "Feedback" },
+                { text: "image", value: "image" },
+                { text: "Delete", value: "id" },
+                { text: "Edit", value: "id" },
+            ]
+        };
+    },
+    mounted() {
+        this.getListOfTester();
+    },
+    methods:{
+        getListOfTester() {
+            const vm = this;
+            axios.get('http://localhost:8000/api/getListOfTester')
+                .then(function (response) {
+                    vm.list = response.data.message;                    
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
+        downloadPDF(){
+            var pdf = new jsPDF();
+                axios.get('http://localhost:8000/api/getListOfTester')
+                    .then(function (response) {
+                        var tableData = '<div><table><tr><th>Project Number</th><th>Recieved Date</th><th>Send Date</th><th>Feedback</th></tr>';
+                        response.data.message.forEach(function(entry) 
+                        {
+                        tableData = tableData + '<tr><td>' +entry.PNum + '</td><td>' +entry.RDate + '</td><td>' + entry.SDate + '</td><td>' + entry.Feedback + '</td><tr>'  ;
 
-    export default {
-       components: {
-            name: "app",
-            cfooter,
-            Dheader,
-            },
 
-        data(){ 
-
-            return{
-
-                Feedbacks:[]
+                        });
+                        tableData = tableData + '</table></div>';   
+                                  //var elementHTML = tableCreate();
+            pdf.fromHTML(tableData, 15, 15, {
+                'width': 170
                 
-
-            }
-
+            });
+            //pdf.text(35, 25, 'body');
+            pdf.save('info.pdf');                
+                });
+  
         },
-
-        created(){
-
-            this.$http.get("http://localhost:8000/api/feedbacks")
-
-             .then(function(response){
-                        
-                         this.Feedbacks = response.body.allfeedbacks;
-                    })
-
-        },
-        methods:{ 
-            deleteRecord(event){
+        deleteRecord(event){
                 this.$http.delete("http://localhost:8000/api/deletefeedbacks/"+event.target.id)
                 .then(function(response){
-                        var position = this.Feedbacks.findIndex(function(element){
+                        /*var position = this.login.findIndex(function(element){
                             return element.id == event.target.id;
                         })
-                        this.Feedbacks.splice(position,1)
+                        
+                        this.login.splice(position,1)*/
+                        window.location.reload();
                 })
                 
-            }
-        }
+            },
+        editItem (item) {
+       // this.editedIndex = this.desserts.indexOf(item)
+        //this.editedItem = Object.assign({}, item)
+        this.dialog = true
+      },
+        
 
     }
-
-
+};
 </script>
-
 <style>
 
     .back {

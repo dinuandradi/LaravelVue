@@ -7,6 +7,7 @@ import DesignCompletedProjects from './views/Design/DesignCompletedProjects.vue'
 import AddnewProject from './views/Design/AddnewProject.vue'
 import SendDesign from './views/Design/SendDesign.vue'
 
+
 import Login from './views/Common/Login.vue'
 import rr from './views/Admin/rr.vue'
 import register from './views/Admin/register.vue'
@@ -20,7 +21,7 @@ import Propanel from './views/Production/Propanel.vue'
 import ProSupDesigner from './views/Production/ProSupervForDesigner.vue'
 import ProSup from './views/Production/ProSup.vue'
 import TesterFeedback from './views/Test/TesterFeedback.vue'
-import test from './views/Production/test.vue'
+
 import edit from './views/Test/edit.vue'
 
 import workerProfile from './views/Worker/workerProfile.vue'
@@ -79,6 +80,10 @@ export default new Router({
              component: SendDesign
 
           },
+          
+
+//login
+
           {
             path:'/',
             name:'Login',
@@ -204,12 +209,7 @@ export default new Router({
         component: publish
 
      },
-     {
-        path:'/test',
-        name:'test',
-        component: test
-
-     },
+     
      {
         path:'/edit/:id',
         name:'edit',

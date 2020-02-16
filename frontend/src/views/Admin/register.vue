@@ -3,6 +3,7 @@
 <v-app class="grey lighten-2" >
     <div class="back" align="center">
         <Aheader/>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         
         <v-container class="my-2" >
             <v-sheet
@@ -18,6 +19,7 @@
                     <h4>Register New user</h4>
                       <v-form  class="my-2 mx-5" ref="form" @submit.prevent="submitForm">
                            <v-text-field 
+                            :rules="[inputRules.required]"
                             label="First Name" 
                             name="ufname"
                             v-model="user.ufname">
@@ -100,7 +102,9 @@
         </v-container>           
         
           <cfooter/>
+        </v-parallax>
     </div>
+
 </v-app>        
         
 </template>

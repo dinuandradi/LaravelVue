@@ -14,10 +14,10 @@
             <v-spacer></v-spacer>
 
             <v-toolbar-title>
-                <span class="font-weight-light">profile name</span>
+                <span class="font-weight-light" ><font face="Arial" size= "2">Tester Panel</font></span>
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span><router-link to="./Login">Sign out</router-link></span>
+                <span><router-link to="./">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                

@@ -1,14 +1,13 @@
 <template>
     <div class="back">
         <Dheader />
-
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
-        <h4><font size="6" face="Comic Sans MS">Production Supervisor Designer Sheet</font></h4>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+        <h4><font size="6" face="Arial">Designs</font></h4>
             <v-container class="my-2">
                 <v-sheet
                     class="py-3 px-5"
                     :elevation="10"
-                    color="wight-1"
+                    color="blue-grey darken-1"
                     height="824"
                     max-width="1300"
                 >
@@ -16,7 +15,7 @@
                 <v-data-table
                     :headers="headers"
                     :items="list"
-                    light
+                    dark
                     >
                     <template slot="items" slot-scope="props">
                         <td class="text-xs-right">{{ props.item.id }}</td>
@@ -27,8 +26,11 @@
                          <td>
                             <a :href="'http://127.0.0.1:8000/testimage/'+props.item.image" download>DownLoad</a>
                         </td>
+                        
                     </template>
+                    
                 </v-data-table>
+                
                 </v-sheet>
             </v-container>
         </v-parallax>
@@ -79,6 +81,7 @@ export default {
                     console.log(error);
                 });
         },
+       
     }
   
 };

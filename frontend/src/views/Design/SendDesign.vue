@@ -3,6 +3,7 @@
 <v-app class="grey lighten-2">
     <div class="back">
         <Dheader/>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         
         <v-container class="my-2" >
             <v-sheet
@@ -48,6 +49,7 @@
         </v-container>           
         
           <cfooter/>
+        </v-parallax>
     </div>
 </v-app>        
         

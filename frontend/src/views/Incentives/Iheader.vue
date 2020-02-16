@@ -14,11 +14,11 @@
             <v-spacer></v-spacer>
 
             <v-toolbar-title>
-                <span class="font-weight-light">profile </span>
+                <span class="font-weight-light"><font face="Arial" size= "2">Incentives</font> </span>
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span>sign out</span>
+                <span><router-link to="./">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                

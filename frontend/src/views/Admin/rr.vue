@@ -1,23 +1,25 @@
 <template>
     <div class="back" id="customers" >
-        <Dheader />
+        <Aheader />
 
-        <v-parallax src="https://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_blue_1920x1234.jpg" max-height="1000" height='100%'>
-        <h4><font size="6" face="Comic Sans MS">Registered Users</font></h4>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+        <h4><font size="6" face="Arial">Registered Users</font></h4>
             <v-container class="my-2">
                 
                 <v-sheet
                     class="py-3 px-5"
                     :elevation="10"
-                    color="wight-1"
-                    height="824"
+                    color="blue-grey darken-2"
+                    height="550"
                     max-width="1300"
                 >
 
-                <v-data-table
+                <v-data-table 
+                    
                     :headers="headers"
                     :items="list"
-                    light
+                    dark
+                    
                     >
                     <template slot="items" slot-scope="props">
                         <td class="text-xs-right">{{ props.item.uid }}</td>
@@ -33,10 +35,12 @@
                    
                     
                 </v-data-table>
-                </v-sheet>
-                <div class ="pdf">
-                    <button class="btn" @click="downloadPDF"> Download PDF </button>
+                
+                <div class="pdf" center>
+                     <v-btn rounded color="blue-grey darken-4" dark @click="downloadPDF" >Download PDF</v-btn>
                 </div>
+                </v-sheet>
+                
             </v-container>
         </v-parallax>
     </div>
@@ -47,7 +51,7 @@
 
 
 import cfooter from '../Design/Footer.vue'
-import Dheader from '../Design/Dheader.vue'
+import Aheader from './Aheader.vue'
 import axios from 'axios'
 import jsPDF from 'jspdf';
 
@@ -56,7 +60,7 @@ export default {
     name: "app",
     components: {
         cfooter,
-        Dheader,
+        Aheader,
     },
     data() {
         return {
@@ -73,6 +77,7 @@ export default {
                 { text: "E-mail", value: "uemail" },
                 { text: "Dep", value: "udep" },
                 { text: "level", value: "ulevel" },
+                { text: "Delete", value: "id" },
             ]
         };
     },

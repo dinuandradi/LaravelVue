@@ -91,6 +91,7 @@ export default {
         ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
         ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
         ldinks.push({ icon: 'folder', text: 'SignUp', route:'/register'});
+        ldinks.push({ icon: 'folder', text: 'Registered Users', route:'/rr'});
         }
         
         /*ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
