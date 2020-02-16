@@ -1,10 +1,11 @@
 <template>
-    <div class="back">
+    <div class="back" id="customers" >
         <Dheader />
 
         <v-parallax src="https://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_blue_1920x1234.jpg" max-height="1000" height='100%'>
         <h4><font size="6" face="Comic Sans MS">Feedback</font></h4>
             <v-container class="my-2">
+                
                 <v-sheet
                     class="py-3 px-5"
                     :elevation="10"
@@ -32,6 +33,9 @@
                     </template>
                 </v-data-table>
                 </v-sheet>
+                <div class ="pdf">
+                    <button class="btn" @click="downloadPDF"> Download PDF </button>
+                </div>
             </v-container>
         </v-parallax>
     </div>
@@ -39,11 +43,15 @@
 
 
 <script>
+
+
 import Dheader from './Dheader.vue'
 import cfooter from './Footer.vue'
-import axios from 'axios';
+import axios from 'axios'
+import jsPDF from 'jspdf';
 
 export default {
+    
     name: "app",
     components: {
         cfooter,
@@ -80,6 +88,30 @@ export default {
                     console.log(error);
                 });
         },
+        downloadPDF(){
+            var pdf = new jsPDF();
+                axios.get('http://localhost:8000/api/getListOfTester')
+                    .then(function (response) {
+                        var tableData = '<div><table><tr><th>Project Number</th><th>Recieved Date</th><th>Send Date</th><th>Feedback</th></tr>';
+                        response.data.message.forEach(function(entry) 
+                        {
+                        tableData = tableData + '<tr><td>' +entry.PNum + '</td><td>' +entry.RDate + '</td><td>' + entry.SDate + '</td><td>' + entry.Feedback + '</td><tr>'  ;
+
+
+                        });
+                        tableData = tableData + '</table></div>';   
+                                  //var elementHTML = tableCreate();
+            pdf.fromHTML(tableData, 15, 15, {
+                'width': 170
+                
+            });
+            //pdf.text(35, 25, 'body');
+            pdf.save('info.pdf');                
+                });
+  
+        },
+        
+
     }
 };
 </script>
