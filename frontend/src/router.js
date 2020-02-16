@@ -6,10 +6,11 @@ import DesignCurPro from './views/Design/DesignCurPro.vue'
 import DesignCompletedProjects from './views/Design/DesignCompletedProjects.vue'
 import AddnewProject from './views/Design/AddnewProject.vue'
 import SendDesign from './views/Design/SendDesign.vue'
-import Login from './views/Common/Login.vue'
 
+import Login from './views/Common/Login.vue'
+import rr from './views/Admin/rr.vue'
 import register from './views/Admin/register.vue'
-import RegisteredUsers from './views/Admin/RegisteredUsers.vue'
+
 
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
@@ -92,13 +93,18 @@ export default new Router({
             component: register
 
         },
+        
         {
-            path:'/RegisteredUsers',
-            name:'RegisteredUsers',
-            component: RegisteredUsers
+            path:'/rr',
+            name:'rr',
+            component: rr
 
         },
+        
 
+
+
+        //Tester
         {
             path:'/Tester',
             name:'Tester',

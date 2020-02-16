@@ -2,7 +2,7 @@
 
 <v-app class="grey lighten-2" >
     <div class="back" align="center">
-        <Dheader/>
+        <Aheader/>
         
         <v-container class="my-2" >
             <v-sheet
@@ -110,7 +110,7 @@
 
     
     import cfooter from '../Design/Footer.vue'
-    import Dheader from '../Design/Dheader.vue'
+    import Aheader from './Aheader.vue'
    
     
 
@@ -118,7 +118,7 @@
        components: {
            
             cfooter,
-            Dheader,
+            Aheader,
             
             },
 

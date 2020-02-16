@@ -73,5 +73,9 @@ class LoginController extends Controller
         return response()->json(['User'=>"User deleted successfully"],201);
     
     }
+    public function index (Request $request){
+        $login = login::get();
+        return response()->json(['message'=>$login],201);
+    }
 
 }

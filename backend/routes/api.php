@@ -121,3 +121,6 @@ route::get('/getUsers',[
 route::delete('/deleteUsers/{id}',[
     'uses'=>'LoginController@deleteUsers'
 ]);
+Route::get('/getListOfUsers',[
+    'uses'=>'LoginController@index'
+]);
