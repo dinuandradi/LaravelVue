@@ -58,9 +58,9 @@ export default {
         return{
             drawer:false,
             links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'folder', text:'projects', route:'./DesignCurPro'},
-                { icon: 'person', text:'reports', route:'/DesignCurPro'},
+                { icon: 'dashboard', text:'Dashboard', route:'/Hm'},
+                { icon: 'folder', text:'projects', route:'./Reports'},
+                
                 { icon: 'folder', text:'Add new project', route:'/AddnewProject'},
                 { icon: 'folder', text:'send designs', route:'/SendDesign'},
                 { icon: 'folder', text:'Feedbacks', route:'/ProSuperv'},

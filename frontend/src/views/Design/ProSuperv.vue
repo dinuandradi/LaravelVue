@@ -2,7 +2,7 @@
     <div class="back" id="customers" >
         <Dheader />
         <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
-        <h4><font size="6" face="Comic Sans MS">Feedback</font></h4>
+        <h4><font size="6" face="Arial">Feedback</font></h4>
             <v-container class="my-2">
                 
                 <v-sheet
@@ -92,7 +92,7 @@ export default {
             var pdf = new jsPDF();
                 axios.get('http://localhost:8000/api/getListOfTester')
                     .then(function (response) {
-                        var tableData = '<div><table><tr><th>Project Number</th><th>Recieved Date</th><th>Send Date</th><th>Feedback</th></tr>';
+                        var tableData = '<div><h2>Feedbacks</h2><table><tr><th>Project Number</th><th>Recieved Date</th><th>Send Date</th><th>Feedback</th></tr>';
                         response.data.message.forEach(function(entry) 
                         {
                         tableData = tableData + '<tr><td>' +entry.PNum + '</td><td>' +entry.RDate + '</td><td>' + entry.SDate + '</td><td>' + entry.Feedback + '</td><tr>'  ;
@@ -101,8 +101,8 @@ export default {
                         });
                         tableData = tableData + '</table></div>';   
                                   //var elementHTML = tableCreate();
-            pdf.fromHTML(tableData, 15, 15, {
-                'width': 170
+            pdf.fromHTML(tableData, 30, 30, {
+                'width': 200
                 
             });
             //pdf.text(35, 25, 'body');
@@ -115,3 +115,21 @@ export default {
     }
 };
 </script>
+<style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #225253;
+        }
+
+</style>

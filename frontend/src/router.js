@@ -6,6 +6,7 @@ import DesignCurPro from './views/Design/DesignCurPro.vue'
 import DesignCompletedProjects from './views/Design/DesignCompletedProjects.vue'
 import AddnewProject from './views/Design/AddnewProject.vue'
 import SendDesign from './views/Design/SendDesign.vue'
+import Reports from './views/Design/Reports.vue'
 
 
 import Login from './views/Common/Login.vue'
@@ -80,6 +81,12 @@ export default new Router({
              component: SendDesign
 
           },
+          {
+            path:'/Reports',
+            name:'Reports',
+            component: Reports
+
+         },
           
 
 //login

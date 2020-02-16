@@ -25,21 +25,25 @@
                             v-model="user.ufname">
                           </v-text-field>
                            <v-text-field 
+                            :rules="[inputRules.required]"
                             label="Last Name" 
                             name="ulname"
                              v-model="user.ulname">
                           </v-text-field>
-                           <v-text-field 
+                           <v-text-field
+                            :rules="[inputRules.required]"
                             label="user email" 
                             name="uemail"
                              v-model="user.uemail">
                           </v-text-field>
                           <v-text-field 
+                            :rules="[inputRules.required]"
                             label="user ID" 
                             name="uid"
                              v-model="user.uid">
                           </v-text-field>
                           <v-select 
+                            :rules="[inputRules.required]"
                             :items = "department"
                             label="Department" 
                             name="udep"
@@ -47,6 +51,7 @@
                           </v-select>
 
                          <div v-if="user.udep==='Designing'"> <v-select
+                            :rules="[inputRules.required]"
                             :items = "designercategory"
                             label="user level/category" 
                             name="ulevel"
@@ -54,6 +59,7 @@
                           </v-select></div>
 
                           <div v-else> <v-select
+                            :rules="[inputRules.required]"
                             :items = "productioncategory"
                             label="user level/category" 
                             name="ulevel"

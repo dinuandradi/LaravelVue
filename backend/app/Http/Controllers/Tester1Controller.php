@@ -74,4 +74,11 @@ public function editfeedback(Request $request,$id){
     return response()->json(['msg'=>$feedback],200);
 
 }
+public function getItem($id){
+    $feedback = tester1::find($id);
+    $response = [
+        'feedback' => $feedback
+    ];
+    return response()->json($response,200);
+}
 }

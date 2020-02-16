@@ -104,7 +104,7 @@
                 this.$http.post("http://localhost:8000/api/AddnewProject",this.item)
                     .then(function(response){
                         
-                        this.$router.push('/DesignCurPro')
+                        this.$router.push('/Reports')
                     })
 
             }

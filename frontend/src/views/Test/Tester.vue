@@ -4,13 +4,13 @@
     <div class="back">
         <Dheader/>
         
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
-        <h4><font size="6" face="Comic Sans MS">Test Results</font></h4>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+        <h4><font size="6" face="Arial">Error Reporting</font></h4>
         <v-container class="my-2">
             <v-sheet
             class="py-3 px-5"
             :elevation="10"
-            color="white-1"
+            color="blue-grey darken-1"
             height="824"
             max-width="1200"
             >
@@ -18,6 +18,7 @@
 
                     <form @submit="formSubmit" enctype="multipart/form-data">
                          <v-text-field
+                          :rules="[inputRules.required]"
                           label="Project No." 
                           shaped clearable 
                           name="PNum" 
@@ -25,7 +26,8 @@
                           >
                           </v-text-field>
                           <v-menu class="mx-5">
-                              <v-text-field  
+                              <v-text-field 
+                              :rules="[inputRules.required]" 
                               :value="item.RDate" 
                               slot="activator" 
                               label="Received date" 
@@ -35,6 +37,7 @@
                           </v-menu>
                            <v-menu class="mx-5">
                               <v-text-field 
+                              :rules="[inputRules.required]"
                               :value="item.SDate" 
                               slot="activator" label="send date"
                               prepend-icon="data_range">
@@ -42,9 +45,10 @@
                               <v-date-picker v-model="item.SDate"> </v-date-picker>
                           </v-menu>
                           <v-textarea
+                                :rules="[inputRules.required]"
                                 name="Feedback"
                                 filled
-                                background-color="light green"
+                                background-color="blue-grey lighten-4"
                                 color="blue"
                                 label="feedback"
                                 auto-grow
@@ -62,8 +66,12 @@
                             </div>
                         </div>
 
-                        <v-btn class="success mx-0 mt-3" @click="reset">Reset</v-btn> 
-                        <button class="success mx-0 mt-3 v-btn theme--light" >Send</button>
+                         
+                        <v-container >
+                        <v-btn class="success mx-5 mt-3" color= "blue-grey darken-4" type="submit">Send</v-btn>
+                        
+                        <v-btn class="success mx-5 mt-3" color= "blue-grey darken-4" @click="reset">Reset</v-btn> 
+                        </v-container>
 
                     </form>
                 </v-container>
@@ -102,9 +110,19 @@
                     RDate:'',
                     Feedback:'',
                 },
+                inputRules:{
+                    required: value => !!value || 'Required.',
+                    min: v => v.length >= 8 || 'Min 8 characters',
+                    min2: v => v.length >= 5 ||'Minimum length is 5 characters'
+                },
             }
         },
-        methods:{
+        methods:
+                {
+                reset(){
+                this.$refs.form.reset()
+            },
+
                 onImageChange(e){
                     this.image = e.target.files[0];
                 },
@@ -131,10 +149,7 @@
                         console.log(error);
                     });
                 },
-                reset(){
-                    this.$refs.form.reset()
-                },
-
+                
                 submitForm()
                 {
                     this.$http.post("http://localhost:8000/api/Tester",this.item)

@@ -88,6 +88,10 @@ Route::delete('/deletefeedbacks/{id}',[
 Route::put('/editfeedbacks/{id}',[
     'uses'=>'Tester1Controller@editfeedback'
 ]);
+Route::get('/getItem/{id}',[
+    'uses'=>'Tester1Controller@getItem'
+]);
+
 
 
 Route::post('/sendimage',[
@@ -97,6 +101,7 @@ Route::get('/chooseimage',[
     'uses'=>'SendImageController@getimage'
 ]);
 
+
 Route::get('/getTheImage/{name}', array('middleware' => 'cors', 'uses' => 'SendImageController@getTheImage'));
 
 Route::delete('/deleteimage/{id}',[
@@ -105,6 +110,8 @@ Route::delete('/deleteimage/{id}',[
 Route::put('/editimage/{id}',[
     'uses'=>'SendImageController@editimage'
 ]);
+
+
 Route::post('/login',[
     'uses'=>'LoginController@login'
 ]);

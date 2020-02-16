@@ -18,7 +18,7 @@
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span><router-link to="./Login">Sign out</router-link></span>
+                <span><router-link to="./">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
@@ -85,7 +85,7 @@ export default {
             ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
         }
         else if(LoggedInUserLevel === "Admin"){
-
+        ldinks.push({ icon: 'folder', text: 'Designer', route:'./AddnewProject'});
         ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
         ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
         ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});

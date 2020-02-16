@@ -4,41 +4,34 @@
     <div class="back">
         <Dheader/>
         
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         <h4><font size="6" face="Comic Sans MS">Edit Feedback</font></h4>
         <v-container class="my-2">
             <v-sheet
             class="py-3 px-5"
             :elevation="10"
-            color="white-1"
+            color="blue-grey darken-1"
             height="824"
-             max-width="1200"
+            max-width="1200"
             >
                 <v-container>
-                     
-                      <v-form  class="my-2 mx-5" ref="form" @submit.prevent="submitForm">
-                          <v-text-field 
-                          
+
+                    <form @submit.prevent="updateinfo" enctype="multipart/form-data">
+                         <v-text-field
                           label="Project No." 
                           shaped clearable 
                           name="PNum" 
-                         
-                         
-                          v-model="item.PNum"
-                          > 
-                          </v-text-field>
-                         
-                         
                           
+                          >
+                          </v-text-field>
                           <v-menu class="mx-5">
-                              
                               <v-text-field  
                               :value="item.RDate" 
                               slot="activator" 
                               label="Received date" 
                               prepend-icon="place">
                               </v-text-field>
-                              <v-date-picker v-model="item.RDate"> </v-date-picker>
+                              <v-date-picker > </v-date-picker>
                           </v-menu>
                            <v-menu class="mx-5">
                               <v-text-field 
@@ -46,30 +39,34 @@
                               slot="activator" label="send date"
                               prepend-icon="data_range">
                               </v-text-field>
-                              <v-date-picker v-model="item.SDate"> </v-date-picker>
+                              <v-date-picker > </v-date-picker>
                           </v-menu>
                           <v-textarea
-                               
                                 name="Feedback"
                                 filled
-                                background-color="light green"
+                                background-color="blue-grey lighten-4"
                                 color="blue"
                                 label="feedback"
                                 auto-grow
                                 value="Text here....."
-                                v-model="item.Feedback"
+                               
                             ></v-textarea>
-                          <v-container>
-                        <v-btn class="success mx-0 mt-3" type="submit">Update</v-btn>
-                        <v-btn class="success mx-0 mt-3" @click="reset">Reset</v-btn> 
-                        </v-container>
-    
-                      </v-form>
+                      
+                        <div class="v-input v-text-field theme--light">
+                            <div class="v-input__control">
+                                <div class="v-input__slot">
+                                    <div class="v-text-field__slot">
+                                        <input  v-on:change="onImageChange"  type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                   
+                         
+                        <button class="success mx-0 mt-3 v-btn theme--light" >Edit</button>
+                        <v-btn class="success mx-0 mt-3" @click="reset">Reset</v-btn>
 
-                    
-                    
+                    </form>
                 </v-container>
             </v-sheet>
         </v-container> 
@@ -87,9 +84,7 @@
     //import Designheader from './Designheader.vue'
     import cfooter from './Footer.vue'
     import Dheader from './Header.vue'
-    //import testheader from './testheader.vue'
-    
-    
+    import axios from 'axios';
 
     export default {
        components: {
@@ -97,42 +92,33 @@
             cfooter,
             Dheader,
             //testheader,
-            
-            },
+        },
 
         data(){
             return{
+                image: '',
                item:{
-                    
                     PNum:'',
                     SDate:'',
                     RDate:'',
                     Feedback:'',
-            
-               },
-                
-
-        }
-        },
-        // methods:{
-                
-
-               /* submitForm()
-                {
-
-                this.$http.post("http://localhost:8000/api/Tester",this.item)
-                    .then(function(response){
-                        
-                        this.$router.push('/TesterFeedback')
-                })
-
+                },
+                created(){
+                    //this.getData();
+                    console.log(this.$route.params.id)
                 }
-        }*/
-        created(){
-           // console.log(this.$router.params.id )
+            }
+        },
+        methods:{
+            getData(){
+                this.$http.get('http://localhost:8000/api/getItem/'+this.$route.params.id)
+                    .then(function (response){
+                        console.log(response)
+                    })
+            }
+             
+                
         }
-        
-
     }
 
 </script>

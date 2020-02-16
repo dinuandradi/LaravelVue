@@ -4,45 +4,50 @@
     <div class="back">
         <Dheader/>
         <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+        <h4><font size="6" face="Arial">Upload and Send Design</font></h4>
         
         <v-container class="my-2" >
             <v-sheet
             :elevation="10"
-            color="blue-grey lighten-1"
-            height="424"
+            color="blue-grey darken-1"
+            height="824"
              width="1200"
             >
                 <v-container>
-                    <h4>upload and send design</h4>
+                    
                     <form @submit="formSubmit" enctype="multipart/form-data">
                         <v-text-field
                             label="Project Name" 
-                            :rules="inputRules" 
+                            :rules="[inputRules.required]" 
                             name="pname" 
                             v-model="item.pname"
                             shaped clearable>
                            </v-text-field>
                          <v-text-field 
+                            :rules="[inputRules.required]"
                             label="project code/ number" 
                             name="pcode"
                              v-model="item.pcode">
                           </v-text-field>
                         <v-menu class="mx-5">
-                            <v-text-field :value="item.sendate" slot="activator" label="send date"  prepend-icon="place"></v-text-field>
+                            <v-text-field :value="item.sendate" :rules="[inputRules.required]" slot="activator" label="send date"  prepend-icon="place"></v-text-field>
                             <v-date-picker v-model="item.sendate"> </v-date-picker>
                         </v-menu>
                         <div class="v-input v-text-field theme--light">
                             <div class="v-input__control">
                                 <div class="v-input__slot">
-                                    <div class="v-text-field__slot">
+                                    <div class="v-text-field__slot" :rules="[inputRules.required]" >
                                         <input  v-on:change="onImageChange"  type="file">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <v-btn class="success mx-0 mt-3" @click="reset">Reset</v-btn> 
-                        <button class="success mx-0 mt-3 v-btn theme--light" >Send</button>
+                        <v-container >
+                        <v-btn class="success mx-5 mt-3" color= "blue-grey darken-4" type="submit">Send</v-btn>
+                        
+                        <v-btn class="success mx-5 mt-3" color= "blue-grey darken-4" @click="reset">Reset</v-btn> 
+                        </v-container>
                     </form>
                 </v-container>
             </v-sheet>
@@ -75,9 +80,11 @@
                     pcode:'',
                     sendate:'',
                 },
-                inputRules:[
-                    v => v.length >= 5 ||'Minimum length is 5 characters'
-                ]
+                inputRules:{
+                    required: value => !!value || 'Required.',
+                    min: v => v.length >= 8 || 'Min 8 characters',
+                    min2: v => v.length >= 5 ||'Minimum length is 5 characters'
+                },
             }
            },
            
