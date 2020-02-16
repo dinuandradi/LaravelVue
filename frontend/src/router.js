@@ -9,6 +9,8 @@ import SendDesign from './views/Design/SendDesign.vue'
 import Login from './views/Common/Login.vue'
 
 import register from './views/Admin/register.vue'
+import RegisteredUsers from './views/Admin/RegisteredUsers.vue'
+
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
@@ -77,7 +79,7 @@ export default new Router({
 
           },
           {
-            path:'/Login',
+            path:'/',
             name:'Login',
             component: Login
 
@@ -88,6 +90,12 @@ export default new Router({
             path:'/register',
             name:'register',
             component: register
+
+        },
+        {
+            path:'/RegisteredUsers',
+            name:'RegisteredUsers',
+            component: RegisteredUsers
 
         },
 
@@ -104,7 +112,7 @@ export default new Router({
         },
 
         {
-           path:'/',
+           path:'/Hm',
            name:'Hm',
            component: Hm
        },

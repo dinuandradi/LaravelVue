@@ -98,11 +98,14 @@ export default {
                 this.$http.post("http://localhost:8000/api/login",this.user)
                      .then(function(response){
                         if(response.status === 200){
+                            //console.log('sd');
+                            //console.log(response.data.login.ulevel);
+                            localStorage.setItem("loggedInUser", response.data.login.ulevel);
                             //this.$session.start
                             //this.$session.start();
                             //this.$session.set("loggedInUser",response.login);
                             //alert('valid user id or password!');
-                            this.$router.push('/');
+                            this.$router.push('/Hm');
                             
                         }
                 }).catch(e => {

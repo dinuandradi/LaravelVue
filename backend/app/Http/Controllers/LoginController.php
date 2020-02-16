@@ -53,7 +53,25 @@ class LoginController extends Controller
         $login->save();
     }
 
+    public function getlogin(){
 
+        $alllogin = login::all();
+        return response()->json(['alllogin'=>$alllogin],200);
+    }
 
+    public function deleteUsers($id){
+
+        $login = login::find($id);
+    
+        if(!$login){
+    
+            return response()->json(['User Id'=>"User not found"],404);
+    
+        }
+    
+        $login->delete();
+        return response()->json(['User'=>"User deleted successfully"],201);
+    
+    }
 
 }

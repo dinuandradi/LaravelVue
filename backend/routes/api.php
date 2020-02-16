@@ -114,3 +114,10 @@ Route::get('/logout',[
 Route::post('/register',[
     'uses'=>'LoginController@register'
 ]);
+
+route::get('/getUsers',[
+    'uses'=>'LoginController@getlogin'
+]);
+route::delete('/deleteUsers/{id}',[
+    'uses'=>'LoginController@deleteUsers'
+]);

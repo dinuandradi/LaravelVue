@@ -17,7 +17,7 @@
                 <span class="font-weight-light">profile name</span>
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span>sign out</span>
+                <span><router-link to="./Login">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
