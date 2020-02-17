@@ -12,6 +12,8 @@ import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
 import ProSup from './views/Production/ProSup.vue'
+import Productiondata from './views/Production/productiondata.vue'
+
 
 
 import workerProfile from './views/Worker/workerProfile.vue'
@@ -20,9 +22,11 @@ import workerReport from './views/Worker/workerReport.vue'
 
 import Incentive_person from './views/Incentives/Incentive_person.vue'
 import IRecentReports from './views/Incentives/IRecentReports.vue'
+import Incentivecriteria from './views/Incentives/Incentivecriteria.vue'
 import Download from './views/Incentives/Download.vue'
 import Calculate from './views/Incentives/Calculate.vue'
 import publish from './views/Incentives/publish.vue'
+
 
 
 Vue.use(Router);
@@ -95,7 +99,7 @@ export default new Router({
         },
 
         {
-           path:'/',
+           path:'/Hm',
            name:'Hm',
            component: Hm
        },
@@ -105,6 +109,13 @@ export default new Router({
            name:'ProSup',
            component: ProSup
        },
+
+
+       {
+        path:'/',
+        name:'Productiondata',
+        component: Productiondata
+    },
 
        
 
@@ -141,6 +152,13 @@ export default new Router({
         path:'/IRecentReports',
         name:'IRecentReports',
         component: IRecentReports
+
+     },
+
+     {
+        path:'/Incentivecriteria',
+        name:'Incentivecriteria',
+        component: Incentivecriteria
 
      },
      {

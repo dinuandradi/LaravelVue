@@ -40,6 +40,9 @@ Route::post('/RegisterUser',[
 ]);
 
 
+Route::get('/currentproductions',[
+    'uses'=>'ProductionsController@getproductions'
+]);
 
 
 
