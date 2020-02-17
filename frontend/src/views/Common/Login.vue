@@ -9,7 +9,7 @@
             <v-sheet
             class="px-5"
             :elevation="10"
-            color="blue-grey lighten-3"
+            color="blue-grey darken-2"
             height="600"
             width="500"
             
@@ -19,7 +19,7 @@
                     <v-form  ref="form"  @submit.prevent="submitForm">
 
                         <v-text-field
-                        :rules="[inputRules.required]" 
+                        :rules="[inputRules.required,inputRules.email]" 
                         name="uemail" 
                         label="email"
                         v-model="user.uemail"
@@ -83,7 +83,11 @@ export default {
             inputRules:{
                     required: value => !!value || 'Required.',
                     min: v => v.length >= 8 || 'Min 8 characters',
-                    min2: v => v.length >= 5 ||'Minimum length is 5 characters'
+                    min2: v => v.length >= 5 ||'Minimum length is 5 characters',
+                    email: value => {
+                    const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    return pattern.test(value) || 'Invalid e-mail.'
+          },
                 },
 
             show3: false,

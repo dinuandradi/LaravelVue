@@ -3,11 +3,13 @@
     <v-app class="grey lighten-2"> 
   <div class="back">
     <Dheader />
+                    <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+
 
             <v-sheet
             class="py-3 px-5"
             :elevation="10"
-            color="blue-grey lighten-2"
+            color="blue-grey darken-1"
             height="850"
             max-width="1500"
             >
@@ -16,6 +18,7 @@
     :headers="headers"
     :items="productions"
     class="elevation-1"
+    dark
   >
     <template slot="items" slot-scope="props">
       <td class="text-xs-left">{{ props.item.Pressno }}</td>
@@ -54,6 +57,7 @@
 
 
             </v-sheet>
+        </v-parallax>
 
 
 

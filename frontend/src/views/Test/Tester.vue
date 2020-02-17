@@ -71,6 +71,7 @@
                         <v-btn class="success mx-5 mt-3" color= "blue-grey darken-4" type="submit">Send</v-btn>
                         
                         <v-btn class="success mx-5 mt-3" color= "blue-grey darken-4" @click="reset">Reset</v-btn> 
+                        
                         </v-container>
 
                     </form>

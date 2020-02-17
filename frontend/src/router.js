@@ -43,6 +43,8 @@ import publish from './views/Incentives/publish.vue'
 
 
 
+
+
 Vue.use(Router);
 
 export default new Router({
@@ -168,7 +170,7 @@ export default new Router({
 
 
        {
-        path:'/',
+        path:'/Productiondata',
         name:'Productiondata',
         component: Productiondata
     },
@@ -236,6 +238,10 @@ export default new Router({
 
      },
      
+     
+
+
+
      {
         path:'/edit/:id',
         name:'edit',

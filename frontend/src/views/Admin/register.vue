@@ -31,7 +31,7 @@
                              v-model="user.ulname">
                           </v-text-field>
                            <v-text-field
-                            :rules="[inputRules.required]"
+                            :rules="[inputRules.required,inputRules.email]"
                             label="user email" 
                             name="uemail"
                              v-model="user.uemail">
@@ -42,6 +42,7 @@
                             name="uid"
                              v-model="user.uid">
                           </v-text-field>
+                          
                           <v-select 
                             :rules="[inputRules.required]"
                             :items = "department"
@@ -65,6 +66,7 @@
                             name="ulevel"
                             v-model="user.ulevel">
                           </v-select></div>
+                          
                           
 
                           <v-text-field
@@ -153,7 +155,11 @@
                 inputRules:{
                     required: value => !!value || 'Required.',
                     min: v => v.length >= 8 || 'Min 8 characters',
-                    min2: v => v.length >= 5 ||'Minimum length is 5 characters'
+                    min2: v => v.length >= 5 ||'Minimum length is 5 characters',
+                    email: value => {
+                    const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    return pattern.test(value) || 'Invalid e-mail.'
+          },
                 },
 
                 passwordConfirmationRule() {
@@ -184,7 +190,7 @@
                  this.$http.post("http://localhost:8000/api/register",this.user)
                      .then(function(response){
                         
-                         //this.$router.push('/DesignCurPro')
+                         this.$router.push('/rr')
                    })
 
             }
