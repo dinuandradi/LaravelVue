@@ -10,69 +10,86 @@
             class="py-3 px-5"
             :elevation="10"
             color="wight-1"
-            height="824"
-            max-width="1300"
+            height="850"
+            max-width="1500"
             >
 
-      <v-data-table :headers="headers" :items="details" :items-per-page="5" class="elevation-1">
-        <template v-slot:top>
-          <v-toolbar flat color="white">
-            <v-toolbar-title>My CRUD</v-toolbar-title>
-            <v-divider
-              class="mx-4"
-              inset
-              vertical
-            ></v-divider>
-            <v-spacer></v-spacer>
-            <v-dialog v-model="dialog" max-width="500px">
-              <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
-              </template>
-              <v-card>
-                <v-card-title>
-                  <span class="headline">{{ formTitle }}</span>
-                </v-card-title>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                  <v-btn color="blue darken-1" text @click="save">Save</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-toolbar>
-        </template>  
-        <template slot="items" slot-scope="props">
-          <td class="text-xs-left">{{ props.item.pNo }}</td>
-          <td class="text-xs-left">{{ props.item.partNo }}</td>
-          <td class="text-xs-left">{{ props.item.item }}</td>
-          <td class="text-xs-left">{{ props.item.material }}</td>
-          <td class="text-xs-left">{{ props.item.target }}</td>
-          <td class="text-xs-left">{{ props.item.totalOutput }}</td>
-          <td class="text-xs-left">{{ props.item.efficiency }}</td>
-          <td class="text-xs-left">{{ props.item.reject }}</td>
-          <td class="text-xs-left">{{ props.item.spew }}</td>
-        </template>
-        <template v-slot:item.action="{ item }">
-          <v-icon
-            small
-            class="mr-2"
-            @click="editItem(item)"
-          >
-            edit
-          </v-icon>
-          <v-icon
-            small
-            @click="deleteItem(item)"
-          >
-            delete
-          </v-icon>
-        </template>
-        <template v-slot:no-data>
-          <v-btn color="primary" @click="initialize">Reset</v-btn>
-        </template>
-      </v-data-table>
+
+          <v-container>
+                <v-layout row class="my-5" >
+                    <v-flex>
+                        <v-card color="blue darken-1">
+                        Press number
+                        </v-card>
+                    </v-flex>
+                    <v-flex>
+                        <v-card color="light-blue darken-2">
+                        Part no
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="green lighten-1">
+                        Item
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="orange accent-2">
+                        Material
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+
+
+                <div >
+                 <v-layout row  :key="productions" v-for="productions in productions" >
+                    <v-flex>
+                        <v-card color="deep-purple accent-1">
+                        {{productions.Pressno}}
+                        </v-card>
+                    </v-flex>
+                    <v-flex>
+                        <v-card color="deep-purple accent-1">
+                        {{productions.Partno}}
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="deep-purple accent-1">
+                        {{productions.Item}}
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="deep-purple accent-1">
+                        {{productions.Material}}
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+                </div>
+
+
+            </v-container>
+     
+
+
+
+
       <div class="text-center">
-        <v-btn rounded color="primary" dark>submit</v-btn>
+          <table class="table">
+            <tr>
+                <td>
+                  <label>Select production sheet for upload</label>
+                </td>
+
+                <td width="30">
+                  <input type="file" name="select_file"/>  
+                </td>
+                
+                <td>
+                  <v-btn rounded type="submit" name="upload" value="Upload" color="primary" dark>Upload</v-btn>
+                </td>
+
+            </tr>
+          </table>
+        <!--<v-btn rounded color="primary" dark>submit</v-btn>  -->
       </div>
 
             </v-sheet>
@@ -96,73 +113,25 @@ export default {
   },
   data() {
     return {
-      headers: [
-        {
-          text: "P_No",
-          align: "left",
-          sortable: false,
-          value: "pNo"
-        },
-        { text: "Part_No", value: "partNo" },
-        { text: "Item", value: "item" },
-        { text: "Material", value: "material" },
-        { text: "Target", value: "target" },
-        { text: "Total_Output", value: "totalOutput" },
-        { text: "Efficiency (%)", value: "efficiency" },
-        { text: "Reject", value: "reject" },
-        { text: "SPEW", value: "spew" }
 
-      ],
-      details: [
-        {
-          pNo: "G-01",
-          partNo: 3900561027,
-          item: "Clip 8",
-          material: 63830,
-          target: 250,
-          totalOutput: 256,
-          efficiency: 102.4,
-          reject: 0,
-          spew: 19.60
+    productions:[]
 
-        },
-        {
-          pNo: "G-02",
-          partNo: 3900561227,
-          item: "Clip 10",
-          material: 63830,
-          target: 228,
-          totalOutput: 229,
-          efficiency: 102.632,
-          reject: 5,
-          spew: 19.00
-        },
-        {
-          pNo: "G-03",
-          partNo: 4354125,
-          item: "NT100M",
-          material: 70810,
-          target: 220,
-          totalOutput: 215,
-          efficiency: 100,
-          reject: 5,
-          spew: 19.00
-        },
-        {
-          pNo: "G-06",
-          partNo: "T400202",
-          item: "XGM032",
-          material: 70814,
-          target: 315,
-          totalOutput: 313,
-          efficiency: 100,
-          reject: 2,
-          spew: 6.00
-        }
-        
-      ]
     };
-  }
+  },
+
+  created(){
+
+            this.$http.get("http://localhost:8000/api/currentproductions")
+
+             .then(function(response){
+                        
+                         this.productions = response.body.allproductions;
+                    })
+
+        }
+
+
+
 };
 </script>
 

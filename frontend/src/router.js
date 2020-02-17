@@ -21,7 +21,12 @@ import ProSuper from './views/Design/ProSuperv.vue'
 import Propanel from './views/Production/Propanel.vue'
 import ProSupDesigner from './views/Production/ProSupervForDesigner.vue'
 import ProSup from './views/Production/ProSup.vue'
+
+import Productiondata from './views/Production/productiondata.vue'
+
+
 import TesterFeedback from './views/Test/TesterFeedback.vue'
+
 
 import edit from './views/Test/edit.vue'
 
@@ -31,10 +36,10 @@ import workerReport from './views/Worker/workerReport.vue'
 
 import Incentive_person from './views/Incentives/Incentive_person.vue'
 import IRecentReports from './views/Incentives/IRecentReports.vue'
+import Incentivecriteria from './views/Incentives/Incentivecriteria.vue'
 import Download from './views/Incentives/Download.vue'
 import Calculate from './views/Incentives/Calculate.vue'
 import publish from './views/Incentives/publish.vue'
-
 
 
 
@@ -161,6 +166,13 @@ export default new Router({
         component: TesterFeedback
     },
 
+
+       {
+        path:'/',
+        name:'Productiondata',
+        component: Productiondata
+    },
+
        
 
        //worker pages
@@ -196,6 +208,13 @@ export default new Router({
         path:'/IRecentReports',
         name:'IRecentReports',
         component: IRecentReports
+
+     },
+
+     {
+        path:'/Incentivecriteria',
+        name:'Incentivecriteria',
+        component: Incentivecriteria
 
      },
      {
