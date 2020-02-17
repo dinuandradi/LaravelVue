@@ -18,7 +18,7 @@
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span>sign out</span>
+                <span><router-link to="./">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
@@ -58,17 +58,51 @@
 
 export default {
     data(){
+        var LoggedInUserLevel = localStorage.getItem('loggedInUser');
+
+
+        var ldinks = [];
+        ldinks.push({ icon: 'dashboard', text:'Dashboard', route:'/Hm'});
+
+        if(LoggedInUserLevel === "Designer")
+        {
+            ldinks.push({ icon: 'folder', text:'Designer', route:'/AddnewProject'});
+        }
+        else if(LoggedInUserLevel === "Production Supervisor")
+        {
+            ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
+        }
+        else if(LoggedInUserLevel === "Product Tester")
+        {
+            ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
+        }
+        else if(LoggedInUserLevel === "Incentive Supervisor")
+        {
+            ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
+        }
+        else if(LoggedInUserLevel === "Worker")
+        {
+            ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
+        }
+        else if(LoggedInUserLevel === "Admin"){
+        ldinks.push({ icon: 'folder', text: 'Designer', route:'./AddnewProject'});
+        ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
+        ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
+        ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
+        ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
+        ldinks.push({ icon: 'folder', text: 'SignUp', route:'/register'});
+        ldinks.push({ icon: 'folder', text: 'Registered Users', route:'/rr'});
+        }
+        
+        /*ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
+        ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
+        ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
+        ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});*/
+
+
         return{
             drawer:false,
-            links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'folder', text:'Designer', route:'/AddnewProject'},
-                { icon: 'folder', text: 'Production Supervisor', route:'./ProSup'},
-                { icon: 'folder', text: 'Production Test Person', route:'./Tester'},
-                { icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'},
-                { icon: 'folder', text: 'Worker', route:'/workerpanel'},
-                
-            ]
+            links:ldinks
         }
     }
     

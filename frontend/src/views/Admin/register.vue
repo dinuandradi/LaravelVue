@@ -2,14 +2,15 @@
 
 <v-app class="grey lighten-2" >
     <div class="back" align="center">
-        <Dheader/>
+        <Aheader/>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         
         <v-container class="my-2" >
             <v-sheet
             class="py-3 px-5"
             :elevation="10"
             color="brown lighten-5"
-            height="550"
+            height="800"
             width="800"
             align="center"
             >
@@ -17,19 +18,32 @@
                      
                     <h4>Register New user</h4>
                       <v-form  class="my-2 mx-5" ref="form" @submit.prevent="submitForm">
-                          <v-text-field
-                            label="user name" 
-                            :rules="[inputRules.min2]" 
-                            name="uname" 
-                            v-model="user.uname"
-                            shaped clearable>
-                           </v-text-field>
+                           <v-text-field 
+                            :rules="[inputRules.required]"
+                            label="First Name" 
+                            name="ufname"
+                            v-model="user.ufname">
+                          </v-text-field>
+                           <v-text-field 
+                            :rules="[inputRules.required]"
+                            label="Last Name" 
+                            name="ulname"
+                             v-model="user.ulname">
+                          </v-text-field>
+                           <v-text-field
+                            :rules="[inputRules.required]"
+                            label="user email" 
+                            name="uemail"
+                             v-model="user.uemail">
+                          </v-text-field>
                           <v-text-field 
+                            :rules="[inputRules.required]"
                             label="user ID" 
                             name="uid"
                              v-model="user.uid">
                           </v-text-field>
                           <v-select 
+                            :rules="[inputRules.required]"
                             :items = "department"
                             label="Department" 
                             name="udep"
@@ -37,6 +51,7 @@
                           </v-select>
 
                          <div v-if="user.udep==='Designing'"> <v-select
+                            :rules="[inputRules.required]"
                             :items = "designercategory"
                             label="user level/category" 
                             name="ulevel"
@@ -44,11 +59,13 @@
                           </v-select></div>
 
                           <div v-else> <v-select
+                            :rules="[inputRules.required]"
                             :items = "productioncategory"
                             label="user level/category" 
                             name="ulevel"
                             v-model="user.ulevel">
                           </v-select></div>
+                          
 
                           <v-text-field
                             :append-icon="show3 ? 'visibility' : 'visibility_off'"
@@ -91,7 +108,9 @@
         </v-container>           
         
           <cfooter/>
+        </v-parallax>
     </div>
+
 </v-app>        
         
 </template>
@@ -101,7 +120,7 @@
 
     
     import cfooter from '../Design/Footer.vue'
-    import Dheader from '../Design/Dheader.vue'
+    import Aheader from './Aheader.vue'
    
     
 
@@ -109,7 +128,7 @@
        components: {
            
             cfooter,
-            Dheader,
+            Aheader,
             
             },
 
@@ -118,8 +137,10 @@
                 
                  
                 user:{
-                    uname:'',
+                    ufname:'',
+                    ulname:'',
                     uid:'',
+                    uemail:'',
                     udep:'',
                     ulevel:'',
                     upassword:'',
@@ -160,10 +181,10 @@
 
             submitForm(){
 
-                 this.$http.post("http://localhost:8000/api/RegisterUser",this.user)
+                 this.$http.post("http://localhost:8000/api/register",this.user)
                      .then(function(response){
                         
-                         this.$router.push('/DesignCurPro')
+                         //this.$router.push('/DesignCurPro')
                    })
 
             }

@@ -6,15 +6,29 @@ import DesignCurPro from './views/Design/DesignCurPro.vue'
 import DesignCompletedProjects from './views/Design/DesignCompletedProjects.vue'
 import AddnewProject from './views/Design/AddnewProject.vue'
 import SendDesign from './views/Design/SendDesign.vue'
+import Reports from './views/Design/Reports.vue'
+
+
 import Login from './views/Common/Login.vue'
+import rr from './views/Admin/rr.vue'
 import register from './views/Admin/register.vue'
+
+
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
+import ProSuper from './views/Design/ProSuperv.vue'
+import Propanel from './views/Production/Propanel.vue'
+import ProSupDesigner from './views/Production/ProSupervForDesigner.vue'
 import ProSup from './views/Production/ProSup.vue'
+
 import Productiondata from './views/Production/productiondata.vue'
 
 
+import TesterFeedback from './views/Test/TesterFeedback.vue'
+
+
+import edit from './views/Test/edit.vue'
 
 import workerProfile from './views/Worker/workerProfile.vue'
 import workerpanel from './views/Worker/workerpanel.vue'
@@ -73,11 +87,22 @@ export default new Router({
 
           },
           {
-            path:'/Login',
+            path:'/Reports',
+            name:'Reports',
+            component: Reports
+
+         },
+          
+
+//login
+
+          {
+            path:'/',
             name:'Login',
             component: Login
 
          },
+         
 
          {
             path:'/register',
@@ -85,7 +110,18 @@ export default new Router({
             component: register
 
         },
+        
+        {
+            path:'/rr',
+            name:'rr',
+            component: rr
 
+        },
+        
+
+
+
+        //Tester
         {
             path:'/Tester',
             name:'Tester',
@@ -105,10 +141,30 @@ export default new Router({
        },
 
        {
-           path:'/ProSup',
-           name:'ProSup',
-           component: ProSup
+           path:'/ProSuperv',
+           name:'ProSuper',
+           component: ProSuper
        },
+       {
+        path:'/Propanel',
+        name:'Propanel',
+        component: Propanel
+         },
+       {
+           path:'/ProSupDesigner',
+           name:'ProSupDesigner',
+           component: ProSupDesigner
+       },
+       {
+        path:'/ProSup',
+        name:'ProSup',
+        component: ProSup
+    },
+       {
+        path:'/TesterFeedback',
+        name:'TesterFeedback',
+        component: TesterFeedback
+    },
 
 
        {
@@ -178,7 +234,18 @@ export default new Router({
         name:'publish',
         component: publish
 
+     },
+     
+     {
+        path:'/edit/:id',
+        name:'edit',
+        component: edit
+
      }
+
+     //Home
+
+     
 
 
     

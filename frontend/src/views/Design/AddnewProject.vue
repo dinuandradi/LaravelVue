@@ -1,9 +1,10 @@
 <template>
 
 <v-app class="grey lighten-2">
+    
     <div class="back">
         <Dheader/>
-        
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         <v-container class="my-2">
             <v-sheet
             class="py-3 px-5"
@@ -51,6 +52,7 @@
         </v-container>           
         
           <cfooter/>
+        </v-parallax>
     </div>
 </v-app>        
         
@@ -102,7 +104,7 @@
                 this.$http.post("http://localhost:8000/api/AddnewProject",this.item)
                     .then(function(response){
                         
-                        this.$router.push('/DesignCurPro')
+                        this.$router.push('/Reports')
                     })
 
             }

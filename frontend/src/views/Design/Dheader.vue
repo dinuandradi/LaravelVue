@@ -12,11 +12,11 @@
             <v-spacer></v-spacer>
 
             <v-toolbar-title>
-                <span class="font-weight-light">profile name</span>
+                <span class="font-weight-light"><font face="Arial" size= "2">Designer Panel</font></span>
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span>sign out</span>
+                <span><router-link to="./">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
@@ -58,12 +58,14 @@ export default {
         return{
             drawer:false,
             links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'folder', text:'projects', route:'./DesignCurPro'},
-                { icon: 'person', text:'reports', route:'/DesignCurPro'},
+                { icon: 'dashboard', text:'Dashboard', route:'/Hm'},
+                { icon: 'folder', text:'projects', route:'./Reports'},
+                
                 { icon: 'folder', text:'Add new project', route:'/AddnewProject'},
                 { icon: 'folder', text:'send designs', route:'/SendDesign'},
-                { icon: 'person', text:'Register Users', route:'/register'},
+                { icon: 'folder', text:'Feedbacks', route:'/ProSuperv'},
+                
+
             ]
         }
     }

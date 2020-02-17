@@ -9,13 +9,17 @@
     "start": "vue-cli-service serve --open"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.24",
     "core-js": "^2.6.5",
+    "image-downloader": "^3.5.0",
+    "jspdf": "^1.5.3",
     "mdbvue": "6.0.1",
     "vue": "^2.6.10",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.6",
+    "vue-session": "^1.0.0",
     "vuetify": "^1.5.5"
   },
   "devDependencies": {

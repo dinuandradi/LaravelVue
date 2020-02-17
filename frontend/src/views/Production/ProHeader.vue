@@ -14,11 +14,11 @@
             <v-spacer></v-spacer>
 
             <v-toolbar-title>
-                <span class="font-weight-light">profile name</span>
+                <span class="font-weight-light"><font face="Arial" size= "2">Production</font></span>
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span>sign out</span>
+                <span><router-link to="./">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
@@ -62,9 +62,10 @@ export default {
             drawer:false,
             links:[
                 { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'home', text:'Home', route:'./Hm'},
+                { icon: 'folder', text:'Production Sheet', route:'./ProSup'},
                 { icon: 'folder', text: 'Report', route:'./DesignCurPro'},
-                { icon: 'folder', text: 'Profile', route:'./Tester'}, 
+                { icon: 'folder', text: 'Feedbacks', route:'./TesterFeedback'}, 
+                { icon: 'folder', text: 'Design', route:'./ProSupDesigner'}, 
             ]
         }
     }

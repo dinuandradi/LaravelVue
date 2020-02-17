@@ -3,7 +3,7 @@
     <div class="back">
         <Dheader/>
         
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
         <v-container class="my-2">
             <v-sheet
             class="py-3 px-5"

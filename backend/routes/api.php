@@ -73,3 +73,64 @@ Route::middleware('auth:api')->group(function () {
 Route::post('/Logintestplease',[
     'uses'=>'PeopleController@addusertest'
 ]);
+Route::post('/Tester',[
+    'uses'=>'Tester1Controller@submitfeedback'
+]);
+Route::get('/getListOfTester',[
+    'uses'=>'Tester1Controller@index'
+]);
+Route::get('/getListOfDesigner',[
+    'uses'=>'Tester1Controller@getListOfDesigner'
+]);
+Route::get('/feedbacks',[
+    'uses'=>'Tester1Controller@getfeedback'
+]);
+Route::delete('/deletefeedbacks/{id}',[
+    'uses'=>'Tester1Controller@deletefeedback'
+]);
+Route::put('/editfeedbacks/{id}',[
+    'uses'=>'Tester1Controller@editfeedback'
+]);
+Route::get('/getItem/{id}',[
+    'uses'=>'Tester1Controller@getItem'
+]);
+
+
+
+Route::post('/sendimage',[
+    'uses'=>'SendImageController@submitimage'
+]);
+Route::get('/chooseimage',[
+    'uses'=>'SendImageController@getimage'
+]);
+
+
+Route::get('/getTheImage/{name}', array('middleware' => 'cors', 'uses' => 'SendImageController@getTheImage'));
+
+Route::delete('/deleteimage/{id}',[
+    'uses'=>'SendImageController@deleteimage'
+]);
+Route::put('/editimage/{id}',[
+    'uses'=>'SendImageController@editimage'
+]);
+
+
+Route::post('/login',[
+    'uses'=>'LoginController@login'
+]);
+Route::get('/logout',[
+    'uses'=>'LoginController@logout'
+]);
+Route::post('/register',[
+    'uses'=>'LoginController@register'
+]);
+
+route::get('/getUsers',[
+    'uses'=>'LoginController@getlogin'
+]);
+route::delete('/deleteUsers/{id}',[
+    'uses'=>'LoginController@deleteUsers'
+]);
+Route::get('/getListOfUsers',[
+    'uses'=>'LoginController@index'
+]);
