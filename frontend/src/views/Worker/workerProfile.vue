@@ -11,7 +11,7 @@
              width="1200"
             >
                 <v-container>
-                    <h4><font size="5" face="Arial Black">This is main worker profile</font></h4>
+                    <h4><font size="5" face="Arial Black">This is worker profile</font></h4>
                     <v-card
                     class="mx-auto"
                     max-width="434"
@@ -53,6 +53,66 @@
                         </v-row>
                     `</v-img>
                 </v-card>
+
+                    <v-container>
+                        <v-layout rows class="my-5">
+                            
+                        <v-flex>
+                    <v-layout column class="my-5" >
+                    <v-flex>
+                        <v-card color="blue darken-1">
+                        User Name
+                        </v-card>
+                    </v-flex>
+                    <v-flex>
+                        <v-card color="light-blue darken-2">
+                        User ID
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="green lighten-1">
+                        E mail
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="orange accent-2">
+                        Department
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+
+                        </v-flex>
+                        <v-flex>
+                <v-layout column class="my-5" >
+                    <v-flex>
+                        <v-card color="blue darken-1">
+                        Project Name
+                        </v-card>
+                    </v-flex>
+                    <v-flex>
+                        <v-card color="light-blue darken-2">
+                        Project Code
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="green lighten-1">
+                        Order Date
+                        </v-card>
+                    </v-flex>
+                     <v-flex>
+                         <v-card color="orange accent-2">
+                        Due Date
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+
+                        </v-flex>
+                        </v-layout>
+                    </v-container>
+
+
+
+
                     <!--<p>need to show the progress of the current slot.</p>-->
                 </v-container>
             </v-sheet>
@@ -78,10 +138,33 @@
             cfooter,
             wHeader,
            // testheader
-           
-            
-           
-           }
+        },
+
+
+        data(){
+
+            return{
+
+                projects:[]
+                
+
+            }
+
+        },
+
+        mounted() {
+        let token = localStorage.getItem("token");
+        if (!token) {
+        this.$router.push("/Login");
+        } else {
+        axios
+        .get("http://localhost:8000/api/showworker/" + token)
+        .then(response => {
+          this.users = response.data.logins;
+          Event.$emit("userLoaded", this.users);
+        });
+    }
+  }
 
     }
 

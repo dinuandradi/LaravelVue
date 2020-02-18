@@ -78,4 +78,14 @@ class LoginController extends Controller
         return response()->json(['message'=>$login],201);
     }
 
+
+
+    public function showworker(Request $request){
+
+        $token = $request->api_token;
+        $login = DB::table('logins')->where('api_token', $token)->first();
+        return response()->json(['logins'=>$login]);
+           
+    }
+
 }
