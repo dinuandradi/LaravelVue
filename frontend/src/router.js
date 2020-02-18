@@ -12,6 +12,7 @@ import Reports from './views/Design/Reports.vue'
 import Login from './views/Common/Login.vue'
 import rr from './views/Admin/rr.vue'
 import register from './views/Admin/register.vue'
+import logout from './views/Common/logout'
 
 
 import Tester from './views/Test/Tester.vue'
@@ -43,6 +44,13 @@ import Incentivecriteria from './views/Incentives/Incentivecriteria.vue'
 import Download from './views/Incentives/Download.vue'
 import Calculate from './views/Incentives/Calculate.vue'
 import publish from './views/Incentives/publish.vue'
+
+
+import vworkers from './views/Admin/vworkers.vue'
+
+import workerProfile1 from './views/Worker/workerProfile1.vue'
+import workerProfile2 from './views/Worker/workerProfile2.vue'
+import workerProfile3 from './views/Worker/workerProfile3.vue'
 
 
 
@@ -120,6 +128,13 @@ export default new Router({
             path:'/rr',
             name:'rr',
             component: rr
+
+        },
+
+        {
+            path:'/logout',
+            name:'logout',
+            component: logout
 
         },
         
@@ -213,11 +228,31 @@ export default new Router({
 
     },
     {
+        path:'/workerProfile1',
+        name:'workerProfile1',
+        component: workerProfile1
+
+    },
+    {
+        path:'/workerProfile2',
+        name:'workerProfile2',
+        component: workerProfile2
+
+    },
+    {
+        path:'/workerProfile3',
+        name:'workerProfile3',
+        component: workerProfile3
+
+    },
+    {
         path:'/workerProfile',
         name:'workerProfile',
         component: workerProfile
 
     },
+
+
     {
         path:'/workerReport',
         name:'workerReport',
@@ -262,6 +297,13 @@ export default new Router({
         path:'/publish',
         name:'publish',
         component: publish
+
+     },
+
+     {
+        path:'/vworkers',
+        name:'vworkers',
+        component: vworkers
 
      },
      

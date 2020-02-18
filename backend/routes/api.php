@@ -139,6 +139,38 @@ Route::get('/getListOfUsers',[
 ]);
 
 
+
+
+Route::get('/getDesigners',[
+    'uses'=>'LoginController@getDesigners'
+]);
+Route::get('/getPSupervisors',[
+    'uses'=>'LoginController@getPSupervisors'
+]);
+Route::get('/getISupervisors',[
+    'uses'=>'LoginController@getISupervisors'
+]);
+Route::get('/getWorkers',[
+    'uses'=>'LoginController@getWorkers'
+]);
+Route::get('/getPTesters',[
+    'uses'=>'LoginController@getDesigners'
+]);
+
+
+Route::get('/getworkerProfile3',[
+    'uses'=>'LoginController@getworkerProfile3'
+]);
+Route::get('/getworkerProfile2',[
+    'uses'=>'LoginController@getworkerProfile3'
+]);
+Route::get('/getworkerProfile1',[
+    'uses'=>'LoginController@getworkerProfile1'
+]);
+
+
+
+
 Route::post('/Addproductiondata',[
 
     'uses'=>'ProductionsController@addproductions'

@@ -15,6 +15,7 @@ class ProjectsController extends Controller
         $project->pcode = $request->input('pcode');
         $project->orderdate = $request->input('orderdate');
         $project->duedate = $request->input('duedate');
+        $project->new = $request->input('new');
 
         $project->save();
         

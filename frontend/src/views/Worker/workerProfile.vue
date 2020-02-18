@@ -86,22 +86,22 @@
                 <v-layout column class="my-5" >
                     <v-flex>
                         <v-card color="blue darken-1">
-                        Project Name
+                       {{users.ufname}} {{users.ulname}}
                         </v-card>
                     </v-flex>
                     <v-flex>
                         <v-card color="light-blue darken-2">
-                        Project Code
+                       {{users.uid}}
                         </v-card>
                     </v-flex>
                      <v-flex>
                          <v-card color="green lighten-1">
-                        Order Date
+                       {{users.uemail}}
                         </v-card>
                     </v-flex>
                      <v-flex>
                          <v-card color="orange accent-2">
-                        Due Date
+                        {{users.udep}}
                         </v-card>
                     </v-flex>
                 </v-layout>
@@ -129,6 +129,7 @@
     //import workerHeader from './workerHeader.vue'
     import cfooter from '../Design/Footer.vue'
     import wHeader from './wHeader.vue'
+    import axios from 'axios'
     //import testheader from '../Design/testheader.vue'
     
 
@@ -145,7 +146,8 @@
 
             return{
 
-                projects:[]
+                projects:[],
+                users:{},
                 
 
             }
@@ -154,16 +156,30 @@
 
         mounted() {
         let token = localStorage.getItem("token");
+        console.log(token)
         if (!token) {
-        this.$router.push("/Login");
+            this.$router.push("/Login");
         } else {
         axios
-        .get("http://localhost:8000/api/showworker/" + token)
+        .get("http://localhost:8000/api/showworker/"+token)
         .then(response => {
           this.users = response.data.logins;
-          Event.$emit("userLoaded", this.users);
+          console.log(this.users)
+
+        //   Event.$emit("userLoaded", this.users);
+
         });
     }
+
+     axios
+        .get("http://localhost:8000/api/showworker/"+token)
+        .then(response => {
+          this.users = response.data.logins;
+          console.log(response)
+
+        //   Event.$emit("userLoaded", this.users);
+
+        });
   }
 
     }

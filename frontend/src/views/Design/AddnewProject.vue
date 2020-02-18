@@ -29,6 +29,11 @@
                             name="pcode"
                              v-model="item.pcode">
                           </v-text-field>
+                          <v-text-field 
+                            label="New" 
+                            name="new"
+                            v-model="item.new">
+                          </v-text-field>
 
                           <v-menu class="mx-5">
                               <v-text-field :value="item.orderdate" slot="activator" label="order date"  prepend-icon="place"></v-text-field>
