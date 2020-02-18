@@ -195,16 +195,13 @@ export default new Router({
     },
 
 
-<<<<<<< HEAD
     
-=======
        {
         path:'/Productiondata',
         name:'Productiondata',
         component: Productiondata
     },
 
->>>>>>> ac68a41396bc68fe452fc0c3905fda3a47adb3c8
        
 
        //worker pages
