@@ -64,6 +64,7 @@
 <script>
 //import VueSession from 'vue-session'
 //Vue.use(VueSession)
+import axios from 'axios'
 
 export default {
 
@@ -104,11 +105,16 @@ export default {
 
             submitForm(){
                 this.$http.post("http://localhost:8000/api/login",this.user)
-                     .then(function(response){
+                     .then(response=>{
                         if(response.status === 200){
                             //console.log('sd');
                             //console.log(response.data.login.ulevel);
-                            localStorage.setItem("loggedInUser", response.data.login.ulevel);
+                            // let Token=this.response.login.api_token;
+                            // localStorage.setItem("token",Token);
+                            console.log(response.data.login.api_token);
+                             localStorage.setItem("token", response.data.login.api_token);
+
+                            //localStorage.setItem("loggedInUser", response.data.login.ulevel);
                             //this.$session.start
                             //this.$session.start();
                             //this.$session.set("loggedInUser",response.login);

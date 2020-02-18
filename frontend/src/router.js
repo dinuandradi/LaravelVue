@@ -12,6 +12,7 @@ import Reports from './views/Design/Reports.vue'
 import Login from './views/Common/Login.vue'
 import rr from './views/Admin/rr.vue'
 import register from './views/Admin/register.vue'
+import logout from './views/Common/logout'
 
 
 import Tester from './views/Test/Tester.vue'
@@ -129,6 +130,13 @@ export default new Router({
             component: rr
 
         },
+
+        {
+            path:'/logout',
+            name:'logout',
+            component: logout
+
+        },
         
 
 
@@ -202,16 +210,13 @@ export default new Router({
     },
 
 
-<<<<<<< HEAD
     
-=======
        {
         path:'/Productiondata',
         name:'Productiondata',
         component: Productiondata
     },
 
->>>>>>> ac68a41396bc68fe452fc0c3905fda3a47adb3c8
        
 
        //worker pages
@@ -238,6 +243,12 @@ export default new Router({
         path:'/workerProfile3',
         name:'workerProfile3',
         component: workerProfile3
+
+    },
+    {
+        path:'/workerProfile',
+        name:'workerProfile',
+        component: workerProfile
 
     },
 

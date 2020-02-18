@@ -127,6 +127,8 @@
     },
     mounted() {
         this.getworkerProfile1();
+
+        axios.get("http://localhost:8000/api/")
     },
     methods:{
         getworkerProfile1() {

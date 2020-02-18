@@ -46,11 +46,16 @@ class LoginController extends Controller
     {
         $api_token= $request->api_token;
         $login= login::where('api_token', $api_token)->first();
-        if(!$login){
+        if($login){
+            $login->api_token=null;
+            $login= login::where('api_token', $api_token)->first();
+
+        }else{
             return response()->json(['status'=>'error','message'=> 'Not Logged In'],401);
+
         }
-        $login->api_token=null;
-        $login->save();
+        
+        // $login->save();
     }
 
     public function getlogin(){
@@ -118,7 +123,7 @@ class LoginController extends Controller
     public function showworker(Request $request){
 
         $token = $request->api_token;
-        $login = DB::table('logins')->where('api_token', $token)->first();
+        $login = login::where('api_token', $token)->first();
         return response()->json(['logins'=>$login]);
            
     }
