@@ -176,3 +176,9 @@ Route::post('/Addproductiondata',[
     'uses'=>'ProductionsController@addproductions'
     
 ]);
+
+Route::get('/getResult',[
+
+    'uses'=>'ProductionsController@viewincentives'
+    
+]);

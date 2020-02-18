@@ -123,17 +123,8 @@ class LoginController extends Controller
     public function showworker(Request $request){
 
         $token = $request->api_token;
-<<<<<<< HEAD
-        // if($token){
-            $login = login::where('api_token', $token)->first();
-        return response()->json(['logins'=>$login],200,);
-
-        // }
-        
-=======
         $login = login::where('api_token', $token)->first();
         return response()->json(['logins'=>$login]);
->>>>>>> 460e06f41f242209175568cb66e7133f5f2d5111
            
     }
 

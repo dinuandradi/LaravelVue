@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\productions;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductionsController extends Controller
 {
@@ -55,6 +56,21 @@ class ProductionsController extends Controller
         
         return response()->json(['message'=>$production],201);
 
+    }
+
+    public function viewincentives(Request $request){
+        $id=$request->uid;
+
+        
+        // $result=productions::where('six_2Empl',$request->uid)->get();
+       $result=productions::where('six_2Empl', $request->uid)->get();
+            if($result){
+        // $query=DB::select(' select * from productions,logins innerjoin logins on logins.uid=productions.six_2Empl');
+
+        return response()->json(['status'=>'success','result'=>$result],200);}
+        // select * from productions,logins
+        // innerjoin logins on logins.uid=productions.six_2Empl
+        
     }
 
 

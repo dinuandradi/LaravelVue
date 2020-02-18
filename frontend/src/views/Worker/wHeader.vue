@@ -19,7 +19,7 @@
             </v-toolbar-title> 
             <!--<v-btn color="grey">-->
                 <v-icon large right>person</v-icon>
-                <span><router-link to="./">Sign out</router-link></span>
+                <span><router-link to="./logout">Sign out</router-link></span>
                  
                
                
