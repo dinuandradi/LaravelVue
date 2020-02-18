@@ -77,5 +77,40 @@ class LoginController extends Controller
         $login = login::get();
         return response()->json(['message'=>$login],201);
     }
+    public function getDesigners (){
+        $login = login::where('ulevel', 'Designer')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    public function getWorkers (){
+        $login = login::where('ulevel', 'Worker')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    public function getPSupervisors (){
+        $login = login::where('ulevel', 'Production Supervisor')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    public function getPTesters (){
+        $login = login::where('ulevel', 'Product Tester')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    public function getISupervisors (){
+        $login = login::where('ulevel', 'Incentive Supervisor')->get();
+        return response()->json(['message'=>$login],201);
+    }
+
+
+    public function getworkerProfile3 (){
+        $login = login::where('uemail', 'kalpani@gmail.com')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    public function getworkerProfile2 (){
+        $login = login::where('uemail', 'akila@gmail.com')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    public function getworkerProfile1 (){
+        $login = login::where('uemail', 'sachini@gmail.com')->get();
+        return response()->json(['message'=>$login],201);
+    }
+    
 
 }

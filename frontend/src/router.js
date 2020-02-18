@@ -42,6 +42,13 @@ import Calculate from './views/Incentives/Calculate.vue'
 import publish from './views/Incentives/publish.vue'
 
 
+import vworkers from './views/Admin/vworkers.vue'
+
+import workerProfile1 from './views/Worker/workerProfile1.vue'
+import workerProfile2 from './views/Worker/workerProfile2.vue'
+import workerProfile3 from './views/Worker/workerProfile3.vue'
+
+
 
 
 
@@ -186,11 +193,25 @@ export default new Router({
 
     },
     {
-        path:'/workerProfile',
-        name:'workerProfile',
-        component: workerProfile
+        path:'/workerProfile1',
+        name:'workerProfile1',
+        component: workerProfile1
 
     },
+    {
+        path:'/workerProfile2',
+        name:'workerProfile2',
+        component: workerProfile2
+
+    },
+    {
+        path:'/workerProfile3',
+        name:'workerProfile3',
+        component: workerProfile3
+
+    },
+
+
     {
         path:'/workerReport',
         name:'workerReport',
@@ -235,6 +256,13 @@ export default new Router({
         path:'/publish',
         name:'publish',
         component: publish
+
+     },
+
+     {
+        path:'/vworkers',
+        name:'vworkers',
+        component: vworkers
 
      },
      

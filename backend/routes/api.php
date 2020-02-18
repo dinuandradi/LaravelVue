@@ -134,3 +134,35 @@ route::delete('/deleteUsers/{id}',[
 Route::get('/getListOfUsers',[
     'uses'=>'LoginController@index'
 ]);
+
+
+
+Route::get('/getDesigners',[
+    'uses'=>'LoginController@getDesigners'
+]);
+Route::get('/getPSupervisors',[
+    'uses'=>'LoginController@getPSupervisors'
+]);
+Route::get('/getISupervisors',[
+    'uses'=>'LoginController@getISupervisors'
+]);
+Route::get('/getWorkers',[
+    'uses'=>'LoginController@getWorkers'
+]);
+Route::get('/getPTesters',[
+    'uses'=>'LoginController@getDesigners'
+]);
+
+
+Route::get('/getworkerProfile3',[
+    'uses'=>'LoginController@getworkerProfile3'
+]);
+Route::get('/getworkerProfile2',[
+    'uses'=>'LoginController@getworkerProfile3'
+]);
+Route::get('/getworkerProfile1',[
+    'uses'=>'LoginController@getworkerProfile1'
+]);
+
+
+

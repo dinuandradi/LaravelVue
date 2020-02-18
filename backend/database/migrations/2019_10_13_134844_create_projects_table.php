@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('pcode');
             $table->string('orderdate');
             $table->string('duedate');
+            
         });
     }
 

@@ -25,6 +25,7 @@
                         <td class="text-xs-right">{{ props.item.duedate }}</td>
                         
                         
+                        
                         <td><v-icon small @click="deleteRecord($event)" v-bind:id="props.item.id">delete</v-icon></td>
                         <!--<td><v-icon small @click="editItem(item)" v-bind:id="props.item.id">edit</v-icon></td>-->
                         <!--<td><editpopup /></td>-->
@@ -65,6 +66,7 @@ export default {
                 { text: "Project Code", value: "pcode" },
                 { text: "Order Date", value: "orderdate" },
                 { text: "Due date", value: "duedate" },
+                
                 { text: "Delete", value: "id" },
                 
             ]

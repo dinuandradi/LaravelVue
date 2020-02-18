@@ -104,8 +104,8 @@
                     Feedback:'',
                 },
                 created(){
-                    //this.getData();
-                    console.log(this.$route.params.id)
+                    this.getData();
+                    //console.log(this.$route.params.id)
                 }
             }
         },
