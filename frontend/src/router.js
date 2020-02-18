@@ -17,12 +17,15 @@ import register from './views/Admin/register.vue'
 import Tester from './views/Test/Tester.vue'
 import SignUp from './views/Common/SignUp.vue'
 import Hm from './views/Common/Hm.vue'
+
+
 import ProSuper from './views/Design/ProSuperv.vue'
 import Propanel from './views/Production/Propanel.vue'
 import ProSupDesigner from './views/Production/ProSupervForDesigner.vue'
 import ProSup from './views/Production/ProSup.vue'
 
 import Productiondata from './views/Production/productiondata.vue'
+import ProAdd from './views/Production/ProAdd.vue'
 
 
 import TesterFeedback from './views/Test/TesterFeedback.vue'
@@ -149,26 +152,49 @@ export default new Router({
            component: Hm
        },
 
+
+       //production pages
        {
            path:'/ProSuperv',
            name:'ProSuper',
            component: ProSuper
        },
+
        {
         path:'/Propanel',
         name:'Propanel',
         component: Propanel
          },
+
        {
            path:'/ProSupDesigner',
            name:'ProSupDesigner',
            component: ProSupDesigner
        },
+
        {
         path:'/ProSup',
         name:'ProSup',
         component: ProSup
     },
+
+    {
+        path:'/Productiondata',
+        name:'Productiondata',
+        component: Productiondata
+    },
+
+    {
+        path:'/ProAdd',
+        name:'ProAdd',
+        component: ProAdd
+    },
+
+
+
+
+
+
        {
         path:'/TesterFeedback',
         name:'TesterFeedback',
@@ -176,12 +202,16 @@ export default new Router({
     },
 
 
+<<<<<<< HEAD
+    
+=======
        {
         path:'/Productiondata',
         name:'Productiondata',
         component: Productiondata
     },
 
+>>>>>>> ac68a41396bc68fe452fc0c3905fda3a47adb3c8
        
 
        //worker pages

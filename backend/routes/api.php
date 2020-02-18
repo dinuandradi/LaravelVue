@@ -118,6 +118,9 @@ Route::put('/editimage/{id}',[
 Route::post('/login',[
     'uses'=>'LoginController@login'
 ]);
+
+Route::get('/showworker/{api_token}','LoginController@showworker');
+
 Route::get('/logout',[
     'uses'=>'LoginController@logout'
 ]);
@@ -134,6 +137,7 @@ route::delete('/deleteUsers/{id}',[
 Route::get('/getListOfUsers',[
     'uses'=>'LoginController@index'
 ]);
+
 
 
 
@@ -166,3 +170,9 @@ Route::get('/getworkerProfile1',[
 
 
 
+
+Route::post('/Addproductiondata',[
+
+    'uses'=>'ProductionsController@addproductions'
+    
+]);
