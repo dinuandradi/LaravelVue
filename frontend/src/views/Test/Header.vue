@@ -17,7 +17,7 @@
                 <span class="font-weight-light" ><font face="Arial" size= "2">Tester Panel</font></span>
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span><router-link to="./logout">Sign out</router-link></span>
+                <span><router-link to="/logout">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                

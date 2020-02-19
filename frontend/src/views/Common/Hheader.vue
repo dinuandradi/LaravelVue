@@ -82,14 +82,14 @@ export default {
         }
         else if(LoggedInUserLevel === "Worker")
         {
-            ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
+            ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerProfile'});
         }
         else if(LoggedInUserLevel === "Admin"){
         ldinks.push({ icon: 'folder', text: 'Designer', route:'./AddnewProject'});
         ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
         ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
         ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
-        ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerpanel'});
+        ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerProfile'});
         ldinks.push({ icon: 'folder', text: 'SignUp', route:'/register'});
         ldinks.push({ icon: 'folder', text: 'Registered Users', route:'/rr'});
         }

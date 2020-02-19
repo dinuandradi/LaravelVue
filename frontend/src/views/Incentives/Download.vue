@@ -4,7 +4,13 @@
     <div class="back">
         <Iheader/>
         <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
-        
+        <v-sheet
+            class="py-3 px-5"
+            :elevation="10"
+             color="blue-grey darken-1"
+             height="824"
+             max-width="1300"
+                >
         <v-container class="my-2" >
             
                 <v-container>
@@ -48,7 +54,8 @@
                     
                 </v-container>
             
-        </v-container>   
+        </v-container> 
+        </v-sheet>  
         </v-parallax>        
         
           <cfooter/>

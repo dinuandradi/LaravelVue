@@ -177,6 +177,19 @@ Route::post('/Addproductiondata',[
     
 ]);
 
+Route::post('/workerfeedback',[
+
+    'uses'=>'WorkerFeedbackController@Workerfeedback'
+    
+]);
+Route::post('/getfeedback',[
+
+    'uses'=>'WorkerFeedbackController@getfeedback'
+    
+    ]);
+
+
+
 Route::get('/getResult',[
 
     'uses'=>'ProductionsController@viewincentives'

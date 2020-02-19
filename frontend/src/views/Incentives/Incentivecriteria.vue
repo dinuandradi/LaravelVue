@@ -2,16 +2,28 @@
   <v-app class="grey lighten-2">
     <div class="back">
         <Iheader/>
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
-        
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1200" height='100%'>
         <v-container class="my-2" >
+        <v-sheet
+                    class="py-3 px-5"
+                    :elevation="10"
+                    color="blue-grey darken-1"
+                    height="824"
+                    max-width="1500"
+                >
+        
            
             
             
                 <v-container>
-                    <h4><font size="6" face="Comic Sans MS" >Incentive Calculations</font></h4>
+                    <h4><font size="6" face="Arial" >Incentive Criterias</font></h4>
                    
-                                <v-data-table :headers="headers2" :items="desserts2" :items-per-page="6" class="elevation-1" color="blue-grey lighten-1">
+                                <v-data-table 
+                                :headers="headers2" 
+                                :items="desserts2" 
+                                :items-per-page="6" 
+                                class="elevation-1" 
+                                dark>
                                 <template slot="items" slot-scope="props">
                                 <td class="text-xs-left">{{ props.item.range }}</td>
                                 <td class="text-xs-left">{{ props.item.unit }}</td>
@@ -21,9 +33,10 @@
 
                 </v-container>
 
-                   
+           </v-sheet>        
             
         </v-container> 
+        
         </v-parallax>
                   
         

@@ -1,7 +1,7 @@
 <template>
 
     <nav>
-        <v-toolbar app color="grey darken-1">
+        <v-toolbar app color="grey lighten-1">
 
         <v-toolbar-side-icon class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
@@ -18,7 +18,7 @@
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span><router-link to="./logout">Sign out</router-link></span>
+                <span><router-link to="/logout">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
@@ -60,14 +60,14 @@ export default {
         return{
             drawer:false,
             links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'folder', text:'Currenet Production Sheet', route:'./Download'},
-                { icon: 'folder', text:'Publish', route:'./Calculate'},
-                { icon: 'folder', text:'reports', route:'./IRecentReports'},
+                { icon: 'dashboard', text:'Dashboard', route:'/Hm'},
+                { icon: 'folder', text:'Incentive Sheet', route:'./Incentive_person'},
+                { icon: 'folder', text:'Incentive Criterias', route:'./Incentivecriteria'},
+                { icon: 'folder', text:'Incentives', route:'./IRecentReports'},
                 
                 
-                { icon: 'person', text:'My Profile', route:'./MyProfile'},
-                { icon: 'home', text:'Home', route:'./Home'},
+                //{ icon: 'person', text:'My Profile', route:'./MyProfile'},
+                //{ icon: 'home', text:'Home', route:'./Home'},
             ]
         }
     }

@@ -51,6 +51,7 @@ import vworkers from './views/Admin/vworkers.vue'
 import workerProfile1 from './views/Worker/workerProfile1.vue'
 import workerProfile2 from './views/Worker/workerProfile2.vue'
 import workerProfile3 from './views/Worker/workerProfile3.vue'
+import workerFeedback from './views/Worker/workerFeedback.vue'
 
 
 
@@ -257,6 +258,12 @@ export default new Router({
         path:'/workerReport',
         name:'workerReport',
         component: workerReport
+
+    },
+    {
+        path:'/workerFeedback',
+        name:'workerFeedback',
+        component: workerFeedback
 
     },
 

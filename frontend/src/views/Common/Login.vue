@@ -114,7 +114,7 @@ export default {
                             console.log(response.data.login.api_token);
                              localStorage.setItem("token", response.data.login.api_token);
 
-                            //localStorage.setItem("loggedInUser", response.data.login.ulevel);
+                            localStorage.setItem("loggedInUser", response.data.login.ulevel);
                             //this.$session.start
                             //this.$session.start();
                             //this.$session.set("loggedInUser",response.login);
