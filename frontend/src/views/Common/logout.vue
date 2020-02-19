@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>logout</h1>
+    <!-- <h1>logou</h1> -->
 </div>
     
 </template>
@@ -17,7 +17,7 @@ export default {
             .then(response=>{
                 localStorage.removeItem('token');
                 console.log("logout");
-                
+                this.$router.push('/Hm')
 
             })
         }

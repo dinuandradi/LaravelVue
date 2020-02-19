@@ -186,4 +186,12 @@ Route::post('/getfeedback',[
 
     'uses'=>'WorkerFeedbackController@getfeedback'
     
+    ]);
+
+
+
+Route::get('/getResult',[
+
+    'uses'=>'ProductionsController@viewincentives'
+    
 ]);

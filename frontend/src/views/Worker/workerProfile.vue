@@ -157,7 +157,7 @@
 
         mounted() {
         let token = localStorage.getItem("token");
-        console.log(token)
+        // console.log(token)
         if (!token) {
             this.$router.push("/");
         } else {
@@ -172,15 +172,10 @@
         });
     }
 
-     axios
-        .get("http://localhost:8000/api/showworker/"+token)
-        .then(response => {
-          this.users = response.data.logins;
-          console.log(response)
-
+     
         //   Event.$emit("userLoaded", this.users);
 
-        });
+        
   }
 
     }
