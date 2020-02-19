@@ -132,7 +132,7 @@ export default {
 
        let uid = localStorage.getItem('uid');
         console.log(uid)
-            axios.get("http://localhost:8000/api/getResult?uid=",uid)
+            axios.get("http://localhost:8000/api/getResult?uid="+uid)
             .then(response => {
                 this.result=response;
             console.log(this.result);
