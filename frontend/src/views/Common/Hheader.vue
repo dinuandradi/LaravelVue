@@ -13,10 +13,7 @@
 
             <v-spacer></v-spacer>
 
-            <v-toolbar-title>
-                <span class="font-weight-light">profile name</span>
-
-            </v-toolbar-title> 
+            
             <v-btn color="grey">
                 <span><router-link to="/logout">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
@@ -70,7 +67,7 @@ export default {
         }
         else if(LoggedInUserLevel === "Production Supervisor")
         {
-            ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
+            ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./productiondata'});
         }
         else if(LoggedInUserLevel === "Product Tester")
         {
@@ -86,7 +83,7 @@ export default {
         }
         else if(LoggedInUserLevel === "Admin"){
         ldinks.push({ icon: 'folder', text: 'Designer', route:'./AddnewProject'});
-        ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./Propanel'});
+        ldinks.push({ icon: 'folder', text: 'Production Supervisor', route:'./productiondata'});
         ldinks.push({ icon: 'folder', text: 'Production Test Person', route:'./Tester'});
         ldinks.push({ icon: 'folder', text: 'Incentive Person', route:'./Incentive_person'});
         ldinks.push({ icon: 'folder', text: 'Worker', route:'/workerProfile'});

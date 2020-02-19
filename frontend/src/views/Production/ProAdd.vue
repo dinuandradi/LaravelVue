@@ -3,7 +3,8 @@
 <v-app class="grey lighten-2" >
     <div class="back" align="center">
         <Dheader/>
-        
+          <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+
         <v-container class="my-2" >
             <v-sheet
             class="py-3 px-5"
@@ -217,7 +218,7 @@
                 </v-container>
             </v-sheet>
         </v-container>           
-        
+          </v-parallax>
           <cfooter/>
     </div>
 </v-app>        
@@ -292,7 +293,7 @@
                      // eslint-disable-next-line no-unused-vars
                      .then(function(response){
                         
-                         this.$router.push('/ProSup')
+                         this.$router.push('/productiondata')
                    })
             }
         }

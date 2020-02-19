@@ -145,6 +145,7 @@
                     axios.post('http://localhost:8000/api/Tester', formData, config)
                     .then(function (response) {
                         console.log(response);
+                        this.$router.push('/TesterFeedback')
                     })
                     .catch(function (error) {
                         console.log(error);

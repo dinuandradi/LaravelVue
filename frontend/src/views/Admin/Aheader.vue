@@ -11,10 +11,7 @@
 
             <v-spacer></v-spacer>
 
-            <v-toolbar-title>
-                <span class="font-weight-light">profile name</span>
-
-            </v-toolbar-title> 
+            
             <v-btn color="grey">
                 <span><router-link to="./logout">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 

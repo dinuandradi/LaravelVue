@@ -9,7 +9,7 @@
             <v-sheet
             class="px-5"
             :elevation="10"
-            color="blue-grey darken-2"
+            color="blue-grey lighten-2"
             height="600"
             width="500"
             

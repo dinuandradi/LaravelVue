@@ -7,7 +7,7 @@
 <script>
 import axios from 'axios'
 export default {
-    created(){
+    mounted(){
         let token=localStorage.getItem('token');
 
         if(!token){
@@ -16,8 +16,9 @@ export default {
             axios.get("http://localhost:8000/api/logout?api_token="+token)
             .then(response=>{
                 localStorage.removeItem('token');
+                 localStorage.removeItem('loggedInUser');
                 console.log("logout");
-                this.$router.push('/Hm')
+                this.$router.push('./')
 
             })
         }

@@ -63,7 +63,7 @@ export default {
             links:[
                 { icon: 'dashboard', text:'Dashboard', route:'/Hm'},
                 { icon: 'person', text:'Profile', route: '/workerProfile'},
-                { icon: 'folder', text:'Incentive Reports', route: '/workerReport'},
+                { icon: 'folder', text:'Incentive Reports', route: '/workerProfile1'},
                 
                 //{ icon: 'folder', text:'send designs', route:'/SendDesign'},
             ]

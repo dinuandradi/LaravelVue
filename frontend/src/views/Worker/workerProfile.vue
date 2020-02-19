@@ -2,7 +2,8 @@
     <v-app class="grey lighten-2" align="center">
         <div class="back text-center">
         <wHeader/>
-        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+                <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
+
             <v-container class="my-2" align="center" >
             <v-sheet 
             :elevation="10"
@@ -102,7 +103,7 @@
                     </v-flex>
                      <v-flex>
                          <v-card color="orange accent-2">
-                        {{users.udeps}}
+                        {{users.udep}}
                         </v-card>
                     </v-flex>
                 </v-layout>

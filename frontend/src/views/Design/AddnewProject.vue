@@ -29,16 +29,13 @@
                             name="pcode"
                              v-model="item.pcode">
                           </v-text-field>
-                          <v-text-field 
-                            label="New" 
-                            name="new"
-                            v-model="item.new">
-                          </v-text-field>
+
+                                    <!-- Automatic date pickers -->
 
                           <v-menu class="mx-5">
                               <v-text-field :value="item.orderdate" slot="activator" label="order date"  prepend-icon="place"></v-text-field>
                               <v-date-picker v-model="item.orderdate"> </v-date-picker>
-                          </v-menu>
+                          </v-menu>                        
                            <v-menu class="mx-5">
                               <v-text-field :value="item.duedate" slot="activator" label="due date" prepend-icon="place"></v-text-field>
                               <v-date-picker v-model="item.duedate"> </v-date-picker>
@@ -93,7 +90,7 @@
                     
                 },
                 inputRules:[
-                    v => v.length >= 5 ||'Minimum length is 5 characters'
+                    v => v.length >= 5 ||'Minimum length is 5 characters'      //need at least 5 characters
                 ]
             }
 
@@ -103,7 +100,7 @@
             reset(){
                 this.$refs.form.reset()
             },
-
+        //calling api 
             submitForm(){
 
                 this.$http.post("http://localhost:8000/api/AddnewProject",this.item)

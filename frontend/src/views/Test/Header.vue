@@ -61,7 +61,7 @@ export default {
             links:[
                 { icon: 'dashboard', text:'Dashboard', route:'/'},
                 { icon: 'home', text:'Home', route:'./Hm'},
-                { icon: 'folder', text:'Reports', route:'/DesignCurPro'},
+                { icon: 'folder', text:'Reports', route:'/TesterFeedback'},
                 
             ]
         }

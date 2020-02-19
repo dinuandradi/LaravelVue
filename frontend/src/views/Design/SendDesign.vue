@@ -110,6 +110,8 @@
                 axios.post('http://localhost:8000/api/sendimage', formData, config)
                 .then(function (response) {
                     console.log(response);
+                    alert('Design sent Successfully');
+                    this.$router.push('/Reports')
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -125,6 +127,8 @@
                 this.$http.post("http://localhost:8000/api/sendimage",this.item)
                     .then(function(response){
                     console.log(response)
+                    alert('Design sent Successfully');
+                    this.$router.push('/Reports')
                 })
 
                 }
