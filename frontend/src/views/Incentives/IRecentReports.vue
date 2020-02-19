@@ -3,15 +3,24 @@
 <v-app class="grey lighten-2">
     <div class="back">
         <Iheader/>
+         <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1200" height='100%'>
+
         
         <v-container class="my-2" >
+            <v-sheet
+                    class="py-3 px-5"
+                    :elevation="10"
+                    color="blue-grey darken-1"
+                    height="824"
+                    max-width="1300"
+                >
             
                 <v-container>
-                    <h4><font size="6" face="Comic Sans MS">Incentive data</font></h4>
+                    <h4><font size="6" face="Arial">Incentive data</font></h4>
                    
                          
                                 <v-card>
-                                <v-card-title>
+                                <!--<v-card-title>
                                     Incentive Data
                                     <v-spacer></v-spacer>
                                     <v-text-field
@@ -20,9 +29,15 @@
                                     label="Search"
                                     single-line
                                     hide-details
+                                    d
                                     ></v-text-field>
-                                </v-card-title>
-                                <v-data-table :headers="headers" :items="productions" :items-per-page="6" class="elevation-1" color="blue-grey lighten-1">
+                                </v-card-title>-->
+                                <v-data-table 
+                                :headers="headers" 
+                                :items="productions" 
+                                :items-per-page="6" 
+                                class="elevation-1" 
+                                dark>
                                 <template slot="items" slot-scope="props">
                                 <td class="text-xs-left">{{ props.item.Pressno }}</td>
                                 <td class="text-xs-left">{{ props.item.Item }}</td>
@@ -40,16 +55,17 @@
                                 </v-data-table>
                                 
                                 </v-card>
-                                <div class="text-center">
-                                    <v-btn rounded  dark color="grey darken-1" height="10" width="20" href="#"><router-link to="./IRecentReports"><font color="black">Calculate Incentives</font></router-link></v-btn>
+                                <div class="pdf" center>
+                                <v-btn rounded color="blue-grey darken-4" dark @click="downloadPDF" >Download PDF</v-btn>
                                 </div>
                                 
                     
                 </v-container>
+            </v-sheet>
             
         </v-container>   
                    
-        
+         </v-parallax>
           <cfooter/>
     </div>
 </v-app>        
@@ -62,7 +78,8 @@
     
     import cfooter from './Footer.vue'
     import Iheader from './Iheader.vue'
-    
+    import axios from 'axios'
+    import jsPDF from 'jspdf'
     
 
     export default {
@@ -101,6 +118,9 @@
 
     };
   },
+  mounted() {
+        this.currentproductions();
+    },
 
 
 
@@ -113,7 +133,29 @@
                          this.productions = response.body.allproductions;
                     })
 
-        }
+        },
+        downloadPDF(){
+            var pdf = new jsPDF();
+                axios.get('http://localhost:8000/api/currentproductions')
+                    .then(function (response) {
+                        var tableData = '<div><h2>Current Projects</h2><table><tr><th>Project Name</th><th>Project Code</th><th>Order date</th><th>Due Date</th><th>Due Date</th><th>Due Date</th><th>Due Date</th><th>Due Date</th></tr>';
+                        response.data.allproductions.forEach(function(entry) 
+                        {
+                        tableData = tableData + '<tr><td>' +entry.item + '</td><td>' +entry.target + '</td><td>' + entry.losstime + '</td><td>' + entry.actualtime + '</td><td>' + entry.employeenumber + '</td><td>' + entry.reject + '</td><td>' + entry.amount + '</td><tr>'  ;
+
+
+                        });
+                        tableData = tableData + '</table></div>';   
+                                  //var elementHTML = tableCreate();
+            pdf.fromHTML(tableData, 30, 30, {
+                'width': 200
+                
+            });
+            //pdf.text(35, 25, 'body');
+            pdf.save('Current_Producions.pdf');                
+                });
+  
+        },
 }
 
 </script>

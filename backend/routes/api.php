@@ -176,3 +176,14 @@ Route::post('/Addproductiondata',[
     'uses'=>'ProductionsController@addproductions'
     
 ]);
+
+Route::post('/workerfeedback',[
+
+    'uses'=>'WorkerFeedbackController@Workerfeedback'
+    
+]);
+Route::post('/getfeedback',[
+
+    'uses'=>'WorkerFeedbackController@getfeedback'
+    
+]);

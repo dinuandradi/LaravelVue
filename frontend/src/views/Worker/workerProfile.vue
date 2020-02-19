@@ -2,11 +2,11 @@
     <v-app class="grey lighten-2" align="center">
         <div class="back text-center">
         <wHeader/>
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1000" height='100%'>
             <v-container class="my-2" align="center" >
             <v-sheet 
             :elevation="10"
-            color="white-1"
+            color="blue-grey darken-1"
             height="550"
              width="1200"
             >
@@ -15,9 +15,10 @@
                     <v-card
                     class="mx-auto"
                     max-width="434"
+                    color="blue-grey darken-1"
                     tile
                     >
-                     <v-img
+                    <!-- <v-img
                         height="100%"
                         src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg"
                     >
@@ -29,16 +30,16 @@
                         align-self="start"
                         class="pa-0"
                         cols="12"
-                     >
+                     >-->
                     <v-avatar
                         class="profile"
-                        color="grey"
+                        color="blue-grey darken-1"
                         size="200"
                         tile
                     >
                     <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
                      </v-avatar>
-                    </v-col>
+                    <!--</v-col>
                         <v-col class="py-0">
                         <v-list-item
                             color="rgba(0, 0, 0, .4)"
@@ -51,7 +52,7 @@
                             </v-list-item>
                          </v-col>
                         </v-row>
-                    `</v-img>
+                    `</v-img>-->
                 </v-card>
 
                     <v-container>
@@ -101,7 +102,7 @@
                     </v-flex>
                      <v-flex>
                          <v-card color="orange accent-2">
-                        {{users.udep}}
+                        {{users.udeps}}
                         </v-card>
                     </v-flex>
                 </v-layout>
@@ -158,7 +159,7 @@
         let token = localStorage.getItem("token");
         console.log(token)
         if (!token) {
-            this.$router.push("/Login");
+            this.$router.push("/");
         } else {
         axios
         .get("http://localhost:8000/api/showworker/"+token)

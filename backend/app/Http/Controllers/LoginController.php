@@ -104,7 +104,7 @@ class LoginController extends Controller
     }
 
 
-    public function getworkerProfile3 (){
+  /*  public function getworkerProfile3 (){
         $login = login::where('uemail', 'kalpani@gmail.com')->get();
         return response()->json(['message'=>$login],201);
     }
@@ -115,7 +115,7 @@ class LoginController extends Controller
     public function getworkerProfile1 (){
         $login = login::where('uemail', 'sachini@gmail.com')->get();
         return response()->json(['message'=>$login],201);
-    }
+    }*/
     
 
 
@@ -123,6 +123,7 @@ class LoginController extends Controller
     public function showworker(Request $request){
 
         $token = $request->api_token;
+        
         $login = login::where('api_token', $token)->first();
         return response()->json(['logins'=>$login]);
            

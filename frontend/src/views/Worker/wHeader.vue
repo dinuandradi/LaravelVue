@@ -19,7 +19,7 @@
             </v-toolbar-title> 
             <!--<v-btn color="grey">-->
                 <v-icon large right>person</v-icon>
-                <span><router-link to="./">Sign out</router-link></span>
+                <span><router-link to="/logout">Sign out</router-link></span>
                  
                
                
@@ -61,10 +61,10 @@ export default {
         return{
             drawer:false,
             links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
+                { icon: 'dashboard', text:'Dashboard', route:'/Hm'},
                 { icon: 'person', text:'Profile', route: '/workerProfile'},
-                { icon: 'folder', text:'reports', route: '/workerReport'},
-                { icon: 'home', text:'Home'},
+                { icon: 'folder', text:'Incentive Reports', route: '/workerReport'},
+                
                 //{ icon: 'folder', text:'send designs', route:'/SendDesign'},
             ]
         }

@@ -18,7 +18,7 @@
 
             </v-toolbar-title> 
             <v-btn color="grey">
-                <span><router-link to="./">Sign out</router-link></span>
+                <span><router-link to="/logout">Sign out</router-link></span>
                 <v-icon right>exit_to_app</v-icon> 
             </v-btn>    
                
@@ -61,10 +61,9 @@ export default {
         return{
             drawer:false,
             links:[
-                { icon: 'dashboard', text:'Dashboard', route:'/'},
-                { icon: 'folder', text:'Production Sheet', route:'./ProSup'},
-                { icon: 'folder', text: 'Report', route:'./DesignCurPro'},
-                { icon: 'folder', text: 'Feedbacks', route:'./TesterFeedback'}, 
+                { icon: 'dashboard', text:'Dashboard', route:'./Hm'},
+                { icon: 'folder', text:'Production Sheet', route:'./productiondata'},
+                { icon: 'folder', text: 'Add Production Data', route:'./ProAdd'}, 
                 { icon: 'folder', text: 'Design', route:'./ProSupDesigner'}, 
             ]
         }

@@ -3,16 +3,23 @@
 <v-app class="grey lighten-2">
     <div class="back">
         <Iheader/>
-        <v-parallax src="http://www.cursaintercol.cat/upload/o/19/191699_website-background-images-hd.jpg" max-height="1000" height='100%'>
+        <v-parallax src="https://cdn.hipwallpaper.com/i/82/58/VhbYJl.jpg" max-height="1200" height='100%'>
         
         <v-container class="my-2" >
+            <v-sheet
+            class="py-3 px-5"
+            :elevation="10"
+            color="blue-grey darken-1"
+            height="824"
+            max-width="1300"
+                >
             
                 <v-container>
-                    <h4><font size="6" face="Comic Sans MS">Incentive data</font></h4>
+                    <h4><font size="6" face="Arial">Incentive data</font></h4>
                    
                          
                                 <v-card>
-                                <v-card-title>
+                                <!--<v-card-title>
                                     Incentive Data
                                     <v-spacer></v-spacer>
                                     <v-text-field
@@ -22,8 +29,13 @@
                                     single-line
                                     hide-details
                                     ></v-text-field>
-                                </v-card-title>
-                                <v-data-table :headers="headers" :items="productions" :items-per-page="6" class="elevation-1" color="blue-grey lighten-1">
+                                </v-card-title>-->
+                                <v-data-table 
+                                :headers="headers" 
+                                :items="productions" 
+                                :items-per-page="6" 
+                                class="elevation-1" 
+                                dark>
                                 <template slot="items" slot-scope="props">
                                 <td class="text-xs-left">{{ props.item.Pressno }}</td>
                                 <td class="text-xs-left">{{ props.item.Item }}</td>
@@ -41,13 +53,14 @@
                                 
                                 </v-card>
                                 <div class="text-center">
-                                    <v-btn rounded  dark color="grey darken-1" height="10" width="20" href="#"><router-link to="./IRecentReports"><font color="black">Calculate Incentives</font></router-link></v-btn>
+                                    <v-btn rounded  dark color="deep-purple darken-4" height="10" width="20" href="#"><router-link to="./IRecentReports"><font color="black">Calculate Incentives</font></router-link></v-btn>
                                 </div>
                                 
                     
                 </v-container>
-            
-        </v-container>   
+          </v-sheet>     
+        </v-container>
+        
         </v-parallax>        
         
           <cfooter/>
